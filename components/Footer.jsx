@@ -1,35 +1,34 @@
 import { motion } from "framer-motion";
-import { Facebook, Twitter, Instagram, Linkedin, ChevronRight, Send, MapPin, Phone, Mail } from "lucide-react";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  ChevronRight,
+  Send,
+  MapPin,
+  Phone,
+  Mail,
+} from "lucide-react";
 import { useState } from "react";
 import Logo from "./Logo/Logo";
+import Link from "next/link";
 
 const services = [
-  {
-    title: "Social Media Marketing",
-    link: "/service",
-  },
-  {
-    title: "Advertising",
-    link: "/service",
-  },
-  {
-    title: "Media Buying",
-    link: "/service",
-  },
-  {
-    title: "Influencer Marketing",
-    link: "/service",
-  },
+  { title: "Strategy & Planning", link: "/service/strategy" },
+  { title: "Production", link: "/service/production" },
+  { title: "Marketing Communications", link: "/service/marketing" },
+  { title: "Media Services", link: "/service/media" },
 ];
 
 function Footer() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const currentYear = new Date().getFullYear();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Subscribed with email:', email);
-    setEmail('');
+    console.log("Subscribed with email:", email);
+    setEmail("");
   };
 
   return (
@@ -49,34 +48,34 @@ function Footer() {
           <div className="lg:col-span-1">
             <Logo color="white" />
             <p className="text-slate-400 leading-relaxed mb-8">
-              We don&apos;t just market; we build movements. Join the hundreds
-              of brands that have unlocked their potential with Adesa Media.
+              At Adesa Media, we empower brands with creativity, strategy, and
+              insights, delivering real value and lasting results.
             </p>
             <div className="flex gap-4">
-              <a
+              <Link
                 href="#"
                 className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#1877f2] hover:bg-[#1877f2]/10 transition-all duration-300"
               >
                 <Facebook size={20} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#1da1f2] hover:bg-[#1da1f2]/10 transition-all duration-300"
               >
                 <Twitter size={20} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#e1306c] hover:bg-[#e1306c]/10 transition-all duration-300"
               >
                 <Instagram size={20} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#0a66c2] hover:bg-[#0a66c2]/10 transition-all duration-300"
               >
                 <Linkedin size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -87,7 +86,7 @@ function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a
+                <Link
                   href="#services"
                   className="text-slate-400 hover:text-white flex items-center gap-2 transition-colors group"
                 >
@@ -96,10 +95,10 @@ function Footer() {
                     className="text-[#FFA205] group-hover:translate-x-1 transition-transform"
                   />
                   Our Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#work"
                   className="text-slate-400 hover:text-white flex items-center gap-2 transition-colors group"
                 >
@@ -108,10 +107,10 @@ function Footer() {
                     className="text-[#FFA205] group-hover:translate-x-1 transition-transform"
                   />
                   Case Studies
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#about"
                   className="text-slate-400 hover:text-white flex items-center gap-2 transition-colors group"
                 >
@@ -119,11 +118,11 @@ function Footer() {
                     size={12}
                     className="text-[#FFA205] group-hover:translate-x-1 transition-transform"
                   />
-                  About Our Team
-                </a>
+                  About Us
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#blog"
                   className="text-slate-400 hover:text-white flex items-center gap-2 transition-colors group"
                 >
@@ -132,10 +131,10 @@ function Footer() {
                     className="text-[#FFA205] group-hover:translate-x-1 transition-transform"
                   />
                   Resource Hub
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#contact"
                   className="text-slate-400 hover:text-white flex items-center gap-2 transition-colors group"
                 >
@@ -144,7 +143,7 @@ function Footer() {
                     className="text-[#FFA205] group-hover:translate-x-1 transition-transform"
                   />
                   Get Started
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -158,7 +157,7 @@ function Footer() {
               {services.map((service, index) => (
                 <ul key={index} className="space-y-4">
                   <li>
-                    <a
+                    <Link
                       href={service.link}
                       className="text-slate-400 hover:text-white flex items-center gap-2 transition-colors group"
                     >
@@ -167,20 +166,20 @@ function Footer() {
                         className="text-[#FFA205] group-hover:translate-x-1 transition-transform"
                       />
                       {service.title}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               ))}
             </div>
           </div>
 
-          {/* Newsletter */}
+          {/* Newsletter & Contact */}
           <div>
             <h4 className="text-lg font-bold text-[#FFA205] mb-8 uppercase tracking-widest">
               Weekly Insights
             </h4>
             <p className="text-slate-400 mb-6">
-              Join 5,000+ marketers getting our weekly growth teardowns.
+              Join 5,000+ marketers receiving our weekly growth insights.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="relative">
@@ -215,21 +214,20 @@ function Footer() {
                 <div className="flex items-start gap-3">
                   <MapPin size={18} className="text-[#FFA205] mt-1 shrink" />
                   <span className="text-slate-400 text-sm">
-                    123 Digital Avenue, Suite 101
-                    <br />
-                    New York, NY 10001, USA
+                    2, Isheri Road (2nd Floor), by Berger Roundabout, Ojodu
+                    Berger, Lagos, 101233
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone size={18} className="text-[#FFA205] mt-1 shrink" />
                   <span className="text-slate-400 text-sm">
-                    +1 (555) 123-4567
+                    +234 701 234 5154
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail size={18} className="text-[#FFA205] mt-1 shrink" />
                   <span className="text-slate-400 text-sm">
-                    hello@adesamedia.com
+                    info@adesahq.com
                   </span>
                 </div>
               </div>
@@ -237,31 +235,31 @@ function Footer() {
           </div>
         </div>
 
-        {/* Copyright and Legal Links */}
+        {/* Copyright & Legal */}
         <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm">
           <p>&copy; {currentYear} Adesa Media. All rights reserved.</p>
           <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-            <a
+            <Link
               href="#"
               className="hover:text-white transition-colors relative group"
             >
               Privacy Policy
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFA205] transition-all group-hover:w-full"></span>
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="hover:text-white transition-colors relative group"
             >
               Terms of Service
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFA205] transition-all group-hover:w-full"></span>
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="hover:text-white transition-colors relative group"
             >
               Cookie Settings
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFA205] transition-all group-hover:w-full"></span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

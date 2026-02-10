@@ -5,29 +5,54 @@ import { useState } from "react";
 const faqItems = [
   {
     id: 1,
-    question: "How long does it take to see SEO results?",
+    question: "What does Adesa Media do?",
     answer:
-      "While initial technical improvements happen fast, organic growth usually takes 3-6 months to manifest significant ranking shifts. We provide monthly reporting so you can track the steady climb.",
+      "Adesa Media runs end-to-end marketing services. Strategy and planning. Production. Marketing communications. Media buying and management. The focus stays on growth, audience connection, and measurable results.",
   },
   {
     id: 2,
-    question: "Do you offer customized packages?",
+    question: "What industries does Adesa Media work with?",
     answer:
-      "Absolutely. Every business has unique goals and budgets. We build tailored roadmaps focusing on the services that will provide the highest immediate ROI for your specific situation.",
+      "Finance. Insurance. FMCG. Automotive. Real estate. Healthcare. Alcohol and beverage brands. The team works across startups, growing businesses, and large enterprises.",
   },
   {
     id: 3,
-    question: "Which social platforms are best for my brand?",
+    question: "What makes Adesa Media different?",
     answer:
-      "This depends entirely on your target audience. We conduct a demographic analysis to determine where your potential customers spend most of their time before launching any campaigns.",
+      "Applied insight. Deep sector understanding. Strong execution. Clear strategy. Fast delivery. Every activity ties back to a defined business objective.",
   },
   {
     id: 4,
-    question: "Can you manage my existing Google Ads account?",
+    question: "How does Adesa Media approach projects?",
     answer:
-      "Yes, we specialize in account audits and takeovers. We'll analyze your current performance, strip out waste, and optimize the structure to lower your Cost Per Acquisition (CPA).",
+      "Projects follow co-creation, creative storytelling, empathy for the audience, and data-led decisions. Clients stay involved from idea stage to delivery.",
+  },
+  {
+    id: 5,
+    question: "Does Adesa Media handle media buying and verification?",
+    answer:
+      "Yes. Media buying, monitoring, and verification across TV, radio, OOH, print, and digital. Performance tracking uses tools like MediaStar, AMPS, and MediaXpress.",
+  },
+  {
+    id: 6,
+    question: "What digital marketing services are offered?",
+    answer:
+      "Social media management. Community building. Digital ads. Media planning. Technology integration. Digital commerce. Tools include Google, Mobihunter, and Sprout Social.",
+  },
+  {
+    id: 7,
+    question: "Who are some brands Adesa Media has worked with?",
+    answer:
+      "FirstBank. Leadway. WEMA Bank ALAT. FCMB Flexx. Toyota Nigeria. Mikano Motors. Enterprise Life. Greenwich Capital. May and Baker. Health Partners HMO.",
+  },
+  {
+    id: 8,
+    question: "How can brands contact or partner with Adesa Media?",
+    answer:
+      "Office at 2 Isheri Road, Ojodu Berger, Lagos. Phone +234 701 234 5154. Email info@adesahq.com. Partnerships focus on long-term growth and shared goals.",
   },
 ];
+
 
 function FAQSection() {
   const [openQuestion, setOpenQuestion] = useState(faqItems[0].id);
@@ -42,7 +67,7 @@ function FAQSection() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="py-24 bg-linear-to-b from-[#F6EFEA] to-[#FFF8F3] relative overflow-hidden"
+      className="py-24 bg-brand-orange relative overflow-hidden z-0"
     >
       <div className="absolute top-0 left-0 w-96 h-96 bg-[#FFA205]/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#151E47]/5 rounded-full blur-3xl -z-10" />
@@ -55,7 +80,7 @@ function FAQSection() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-[#FFA205] font-bold tracking-widest uppercase text-sm bg-white/60 px-4 py-1 rounded-full backdrop-blur-sm inline-block"
+              className="text-brand-blue font-bold tracking-widest uppercase text-sm bg-white/60 px-4 py-1 rounded-full backdrop-blur-sm inline-block"
             >
               Clarification
             </motion.span>
@@ -80,7 +105,7 @@ function FAQSection() {
             </motion.p>
 
             <motion.a
-              href="#contact"
+              href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-block bg-white text-[#151E47] border-2 border-[#FFA205] font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300"

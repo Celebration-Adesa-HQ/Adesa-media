@@ -3,21 +3,17 @@
 import { useEffect, useRef } from "react";
 import HeroSection from "./Sections/HeroSection";
 import WhatWeDoSection from "./Sections/WhatWeDoSection";
-import WhyChooseUsSection from "./Sections/WhyChooseUsSection";
 import ClientsSection from "./Sections/ClientsSection";
-import ProcessSection from "./Sections/ProcessSection";
 import FeaturedWorkSection from "./Sections/FeaturedWorkSection";
-import AboutSection from "./Sections/AboutSection";
-import BlogSection from "./Sections/BlogSection";
 import FAQSection from "./Sections/FaqSection";
-import ContactSection from "./Sections/ContactSection";
+import AdesaAdvantageSection from "./Sections/AdesaAdvantageSection";
 
 export default function HomePage() {
   const sectionRefs = useRef({});
 
   useEffect(() => {
     const sections = ["home", "services", "work", "about", "contact"];
-    
+
     const handleScroll = () => {
       setHeaderScrolled(window.scrollY > 50);
 
@@ -51,33 +47,34 @@ export default function HomePage() {
     }
   };
 
-
   return (
     <div className="font-body text-brand-dark bg-brand-light scroll-smooth">
-
       {/* Hero Section */}
       <HeroSection />
 
       {/* What We Do */}
       <WhatWeDoSection />
 
+      {/* Adesa Advantage */}
+      <AdesaAdvantageSection />
+
+      {/* Featured Work */}
+      <FeaturedWorkSection />
+
       {/* Why Adesa Media */}
-      <WhyChooseUsSection />
+      {/* <WhyChooseUsSection /> */}
 
       {/* Clients */}
       <ClientsSection />
 
       {/* Process */}
-      <ProcessSection />
-
-      {/* Featured Work */}
-      <FeaturedWorkSection />
+      {/* <ProcessSection /> */}
 
       {/* About Section */}
-      <AboutSection />
+      {/* <AboutSection /> */}
 
       {/* Blog Sectio */}
-      <BlogSection />
+      {/* <BlogSection /> */}
 
       {/* FAQ Section */}
       <FAQSection />
@@ -102,7 +99,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <ContactSection />
+      {/* <ContactSection /> */}
     </div>
   );
 }

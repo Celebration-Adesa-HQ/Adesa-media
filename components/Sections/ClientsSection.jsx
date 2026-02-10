@@ -2,54 +2,103 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { Container } from "../Container";
+import { SectionHeading } from "../SectionHeading";
 
-function ClientsSection() {
-  const clients = [
-    { name: "Spotify", logo: "/clients/spotify.svg" },
-    { name: "Adobe", logo: "/clients/adobe.svg" },
-    { name: "Slack", logo: "/clients/slack.svg" },
-    { name: "Dropbox", logo: "/clients/dropbox.svg" },
-    { name: "Stripe", logo: "/clients/stripe.svg" },
-    { name: "Shopify", logo: "/clients/shopify.svg" },
-  ];
+const clients = [
+  { name: "FBN Trustees", logo: "/clients/fbn-trustees.svg" },
+  { name: "Leadway Assurance", logo: "/clients/leadway.svg" },
+  { name: "W Health (Leadway Health)", logo: "/clients/w-health.svg" },
+  { name: "WEMA Bank / ALAT", logo: "/clients/wema-alat.svg" },
+  { name: "FirstBank", logo: "/clients/firstbank.svg" },
+  { name: "FBNQuest", logo: "/clients/fbnquest.svg" },
+  { name: "FCMB (Flexx)", logo: "/clients/fcmb-flexx.svg" },
+  { name: "Toyota (Nigeria) Limited", logo: "/clients/toyota.svg" },
+  { name: "Mikano Motors (Changan)", logo: "/clients/mikano-changan.svg" },
+  { name: "Enterprise Life", logo: "/clients/enterprise-life.svg" },
+  { name: "Health Partners HMO", logo: "/clients/health-partners.svg" },
+  { name: "Black Knight Whisky", logo: "/clients/black-knight.svg" },
+  { name: "New Look Drinks", logo: "/clients/new-look-drinks.svg" },
+  { name: "May & Baker Nigeria", logo: "/clients/may-baker.svg" },
+  { name: "The Meadows (Ibeju-Lekki)", logo: "/clients/the-meadows.svg" },
+  { name: "Greenwich Capital", logo: "/clients/greenwich-capital.svg" },
+];
+
+export default function ClientsSection({ showFullClient = false }) {
+  const HeadingBlock = (
+    <SectionHeading
+      showFullClient={showFullClient}
+      eyebrow="Our Clients"
+      title="Trusted by Leading Brands"
+      description="We partner with ambitious brands across finance, healthcare, mobility, and consumer markets."
+    />
+  );
 
   return (
-    <section className="py-20 bg-white overflow-hidden">
-      <div className="container mx-auto px-6">
-        <h3 className="text-3xl font-heading font-bold text-center text-[#151E47] mb-12">
-          Clients We Have Worked With
-        </h3>
-      </div>
-
-      <div className="relative w-full overflow-hidden">
-        <motion.div
-          className="flex items-center gap-20 w-max"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            duration: 30,
-            ease: "linear",
-          }}
+    <section
+      className={`overflow-hidden ${
+        showFullClient ? "py-0 pb-24 bg-slate-50" : "py-24 bg-slate-50"
+      }`}
+    >
+      {showFullClient ? (
+        HeadingBlock
+      ) : (
+        <Link
+          href="/clients"
+          aria-label="View all clients"
+          className="block focus:outline-none"
         >
-          {[...clients, ...clients].map((client, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center bg-slate-50 px-10 py-6 rounded-xl border border-slate-100"
-            >
-              <Image
-                src={client.logo}
-                alt={client.name}
-                width={140}
-                height={60}
-                className="object-contain grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition"
-                priority={index < clients.length}
-              />
-            </div>
-          ))}
-        </motion.div>
-      </div>
+          {HeadingBlock}
+        </Link>
+      )}
+
+      <Container>
+        {showFullClient && (
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {clients.map((c) => (
+              <div
+                key={c.name}
+                className="flex h-20 items-center justify-center rounded-xl bg-white border border-slate-200"
+              >
+                <Image
+                  src={c.logo}
+                  alt={c.name}
+                  width={120}
+                  height={48}
+                  className="object-contain grayscale opacity-80"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+      </Container>
+
+      {!showFullClient && (
+        <div className="relative mt-20 w-full overflow-hidden">
+          <motion.div
+            className="flex w-max items-center gap-16"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          >
+            {[...clients, ...clients].map((c, i) => (
+              <div
+                key={`${c.name}-${i}`}
+                className="flex h-16 items-center justify-center rounded-xl bg-white px-10 border border-slate-200"
+              >
+                <Image
+                  src={c.logo}
+                  alt={c.name}
+                  width={120}
+                  height={48}
+                  className="object-contain grayscale opacity-70"
+                  priority={i < clients.length}
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 }
-
-export default ClientsSection;

@@ -1,116 +1,138 @@
+"use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const projects = [
   {
     id: 1,
-    title: "Digital Revenue Surge",
+    brand: "LEADWAY",
+    title: "Leadway Assurance / Health",
     description:
-      "Increased sales by 220% for a luxury retailer using omnichannel optimization.",
-    category: "E-commerce",
-    categoryColor: "bg-orange-500",
-    tags: ["SEO", "PPC"],
+      "Integrated brand and media campaigns driving strong recall across insurance and health audiences.",
+    category: "Insurance / Health",
+    tags: ["Brand", "Media", "Strategy"],
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 2,
-    title: "SaaS Growth Engine",
+    brand: "FCMB",
+    title: "FCMB Flexx",
     description:
-      "Complete digital transformation for a fintech startup, resulting in 300% user growth.",
-    category: "SaaS",
-    categoryColor: "bg-blue-500",
-    tags: ["Branding", "Content"],
+      "Youth-focused digital platform with over 70,000 unique users in launch phase.",
+    category: "Banking",
+    tags: ["Digital", "Content", "Growth"],
     image:
       "https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 3,
-    title: "Global Expansion",
+    brand: "TOYOTA",
+    title: "Toyota Nigeria",
     description:
-      "Navigated complex healthcare compliance to launch a global telehealth campaign.",
-    category: "Healthcare",
-    categoryColor: "bg-emerald-500",
-    tags: ["Local SEO", "Ads"],
+      "National campaigns for passenger and armoured vehicles across multiple touchpoints.",
+    category: "Automotive",
+    tags: ["Campaigns", "PR", "Media"],
     image:
       "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800",
   },
 ];
 
-function FeaturedWorkSection() {
+export default function FeaturedWorkSection() {
   return (
-    <motion.section
-      id="work"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="py-24 bg-[#151E47] text-white"
-    >
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div className="max-w-2xl">
-            <span className="text-[#FFA205] font-bold tracking-widest uppercase text-sm">
-              Case Studies
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-3">
-              Portfolio Highlights
+    <section className="py-24 bg-[#151E47] text-white">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-14">
+          <div>
+            <p className="text-[#FFA205] text-sm tracking-widest uppercase font-semibold">
+              Our Adventures
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">
+              Selected Campaigns
             </h2>
           </div>
-          <a
-            href="#"
-            className="text-[#FFA205] font-semibold border-b-2 border-[#FFA205] pb-1 hover:text-white hover:border-white transition-all"
+
+          <Link
+            href="/adventures"
+            className="hidden md:block text-sm font-semibold text-slate-300 border-b border-slate-600 hover:text-white hover:border-white transition"
           >
-            View All Projects
-          </a>
+            View All Case Studies
+          </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              className="group cursor-pointer"
+              transition={{ delay: index * 0.15 }}
+              className="group rounded-2xl overflow-hidden bg-slate-800 hover:scale-[1.02] transition"
             >
-              <div className="overflow-hidden rounded-3xl mb-6 aspect-video relative">
+              {/* Image */}
+              <div className="relative aspect-video overflow-hidden">
                 <Image
                   src={project.image}
-                  alt={project.category}
-                  width={800}
-                  height={450}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100"
+                  alt={project.title}
+                  fill
+                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition duration-500"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
-                  <span
-                    className={`text-xs font-bold uppercase tracking-widest ${project.categoryColor} px-3 py-1 rounded`}
-                  >
-                    {project.category}
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <span className="text-3xl font-black tracking-widest text-white/70">
+                    {project.brand}
                   </span>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold mb-3 group-hover:text-[#FFA205] transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-blue-200/80 mb-6">{project.description}</p>
-              <div className="flex gap-4">
-                {project.tags.map((tag, tagIndex) => (
-                  <span
-                    key={tagIndex}
-                    className="text-xs font-semibold px-3 py-1 bg-white/10 rounded-full border border-white/10"
-                  >
-                    {tag}
-                  </span>
-                ))}
+
+              {/* Content */}
+              <div className="p-6">
+                <p className="text-xs font-semibold text-[#FFA205] uppercase tracking-wider mb-2">
+                  {project.category}
+                </p>
+                <h3 className="text-xl font-bold mb-3 group-hover:text-[#FFA205] transition">
+                  {project.title}
+                </h3>
+                <p className="text-slate-400 text-sm mb-5">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-3 py-1 rounded-full border border-white/10 bg-white/5"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <Link
+                  href="#"
+                  className="text-sm font-semibold text-white hover:text-[#FFA205] transition"
+                >
+                  Read More →
+                </Link>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
+
+        {/* Mobile CTA */}
+        <div className="mt-10 text-center md:hidden">
+          <Link
+            href="/adventures"
+            className="text-sm font-semibold text-slate-300 border-b border-slate-600 hover:text-white hover:border-white transition"
+          >
+            View All Case Studies
+          </Link>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
-
-export default FeaturedWorkSection;
