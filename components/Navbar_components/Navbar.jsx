@@ -130,15 +130,20 @@ export default function Navbar() {
 
       {/* Mobile */}
       {open && (
-        <div className="fixed inset-0 z-50" onClick={() => setOpen(false)}>
+        <div
+          className="fixed inset-0 z-50 overscroll-contain lg:hidden"
+          onPointerDown={() => setOpen(false)}
+        >
           <div className="absolute inset-0 bg-black/40" />
 
           <div
-            className="absolute right-0 top-0 h-full w-[90%] max-w-md bg-brand-light dark:bg-brand-blue border-l border-gray-200 dark:border-white/10 flex flex-col"
-            onClick={(e) => e.stopPropagation()}
+            className="absolute right-0 top-0 h-dvh w-[90%] max-w-md bg-brand-light dark:bg-brand-blue border-l border-gray-200 dark:border-white/10 flex flex-col will-change-transform translate-z-0"
+            onPointerDown={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between px-6 py-6 border-b border-gray-200 dark:border-white/10">
-              <Logo />
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-6 border-b border-gray-200 dark:border-white/10 shrink-0">
+              <Logo color={`${theme === "dark" ? "white" : "black"}`} />
+
               <button
                 onClick={() => setOpen(false)}
                 className="h-10 w-10 rounded-xl flex items-center justify-center text-brand-blue dark:text-brand-light hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
@@ -148,7 +153,8 @@ export default function Navbar() {
               </button>
             </div>
 
-            <nav className="flex-1 px-6 py-8 flex flex-col gap-2 overflow-y-auto">
+            {/* Scroll Area */}
+            <nav className="flex-1 px-6 py-8 flex flex-col gap-2 overflow-y-auto overscroll-contain ">
               {allRoutes.map((route) => (
                 <Link
                   key={route.href}
@@ -165,8 +171,10 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="border-t border-gray-200 dark:border-white/10 px-6 py-6 flex flex-col gap-4">
+            {/* Footer */}
+            <div className="border-t border-gray-200 dark:border-white/10 px-6 py-6 flex flex-col gap-4 shrink-0">
               <ThemeSwitch />
+
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
