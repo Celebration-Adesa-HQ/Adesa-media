@@ -18,7 +18,7 @@ export const HeroSection = ({
   return (
     <section
       data-id={dataId}
-      className={`relative w-full min-h-screen overflow-hidden flex flex-col ${className}`}
+      className={`relative w-full min-h-dvh overflow-hidden flex flex-col ${className}`}
     >
       {/* Background Image */}
       <Image
@@ -31,12 +31,12 @@ export const HeroSection = ({
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30 z-1" />
+      <div className="absolute inset-0 bg-black/30 z-0" />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col min-h-screen">
+      {/* Layout */}
+      <div className="relative z-10 flex flex-col flex-1">
         {/* Top Bar */}
-        <header className="flex items-center justify-end px-6 md:px-12 pt-8">
+        <header className="flex items-center justify-end px-6 md:px-12 pt-6 md:pt-8">
           {logo || <Logo color="white" />}
         </header>
 
@@ -75,7 +75,9 @@ export const HeroSection = ({
         </main>
 
         {/* Bottom Navigation */}
-        <HeroNav />
+        <div className="pb-safe">
+          <HeroNav />
+        </div>
       </div>
     </section>
   );
