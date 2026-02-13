@@ -1,68 +1,11 @@
 "use client";
 
 import React from "react";
-import {
-  Star,
-  Users,
-  ShieldCheck,
-  Flame,
-  Handshake,
-  Brain,
-} from "lucide-react";
-
-/* Manual Color Map */
-const valueColors = {
-  "value-passion": "#A3D133",
-  "value-teamwork": "#36C59E",
-  "value-innovation": "#47D1E9",
-  "value-excellence": "#43A5E2",
-  "value-relationship": "#4178D2",
-  "value-accountability": "#4A67A2",
-};
-
-const valuesLeft = [
-  {
-    label: "EXCELLENCE",
-    color: "value-excellence",
-    icon: Star,
-    ml: "",
-  },
-  {
-    label: "RELATIONSHIP",
-    color: "value-relationship",
-    icon: Users,
-    ml: "lg:ml-10",
-  },
-  {
-    label: "ACCOUNTABILITY",
-    color: "value-accountability",
-    icon: ShieldCheck,
-    ml: "",
-  },
-];
-
-const valuesRight = [
-  {
-    label: "PASSION",
-    color: "value-passion",
-    icon: Flame,
-    mr: "",
-  },
-  {
-    label: "TEAMWORK",
-    color: "value-teamwork",
-    icon: Handshake,
-    mr: "lg:mr-10",
-  },
-  {
-    label: "INNOVATION",
-    color: "value-innovation",
-    icon: Brain,
-    mr: "",
-  },
-];
+import * as LucideIcons from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 export default function OurCoreValue() {
+    const { colors, left, right, svg } = siteConfig.coreValues;
   return (
     <section className="min-h-screen flex items-center justify-center p-6 lg:p-12 overflow-hidden relative">
       <div className="max-w-6xl w-full relative">
@@ -85,14 +28,7 @@ export default function OurCoreValue() {
             fill="none"
             viewBox="0 0 1000 600"
           >
-            {[
-              "M500 300 C400 300, 350 120, 310 120",
-              "M500 300 C380 300, 370 300, 310 300",
-              "M500 300 C400 300, 350 480, 310 480",
-              "M500 300 C600 300, 650 120, 690 120",
-              "M500 300 C620 300, 630 300, 690 300",
-              "M500 300 C600 300, 650 480, 690 480",
-            ].map((d, i) => (
+            {svg.map((d, i) => (
               <path
                 key={i}
                 d={d}
@@ -105,9 +41,9 @@ export default function OurCoreValue() {
 
           {/* Right Column */}
           <div className="flex flex-col gap-12 lg:gap-24 items-end z-10 w-full lg:w-1/3">
-            {valuesRight.map((v) => {
-              const Icon = v.icon;
-              const color = valueColors[v.color];
+            {right.map((v) => {
+                const Icon = LucideIcons[v.icon];
+                const color = colors[v.color];
 
               return (
                 <div
@@ -140,21 +76,21 @@ export default function OurCoreValue() {
             <div className="w-56 h-56 lg:w-72 lg:h-72 rounded-full bg-white dark:bg-slate-800 flex flex-col items-center justify-center text-center shadow-2xl border-4 border-slate-100 dark:border-slate-700">
               <span
                 className="text-2xl lg:text-3xl font-black"
-                style={{ color: valueColors["value-teamwork"] }}
+                style={{ color: colors["value-teamwork"] }}
               >
                 OUR
               </span>
 
               <span
                 className="text-2xl lg:text-3xl font-black"
-                style={{ color: valueColors["value-innovation"] }}
+                style={{ color: colors["value-innovation"] }}
               >
                 CORE
               </span>
 
               <span
                 className="text-2xl lg:text-3xl font-black"
-                style={{ color: valueColors["value-excellence"] }}
+                style={{ color: colors["value-excellence"] }}
               >
                 VALUES
               </span>
@@ -163,9 +99,9 @@ export default function OurCoreValue() {
 
           {/* Left Column */}
           <div className="flex flex-col gap-12 lg:gap-24 items-start z-10 w-full lg:w-1/3">
-            {valuesLeft.map((v) => {
-              const Icon = v.icon;
-              const color = valueColors[v.color];
+            {left.map((v) => {
+              const Icon = LucideIcons[v.icon];
+              const color = colors[v.color];
 
               return (
                 <div

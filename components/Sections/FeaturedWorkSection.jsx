@@ -1,46 +1,14 @@
 "use client";
 
+import { siteConfig } from "@/config/site";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const projects = [
-  {
-    id: 1,
-    brand: "LEADWAY",
-    title: "Leadway Assurance / Health",
-    description:
-      "Integrated brand and media campaigns driving strong recall across insurance and health audiences.",
-    category: "Insurance / Health",
-    tags: ["Brand", "Media", "Strategy"],
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: 2,
-    brand: "FCMB",
-    title: "FCMB Flexx",
-    description:
-      "Youth-focused digital platform with over 70,000 unique users in launch phase.",
-    category: "Banking",
-    tags: ["Digital", "Content", "Growth"],
-    image:
-      "https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: 3,
-    brand: "TOYOTA",
-    title: "Toyota Nigeria",
-    description:
-      "National campaigns for passenger and armoured vehicles across multiple touchpoints.",
-    category: "Automotive",
-    tags: ["Campaigns", "PR", "Media"],
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800",
-  },
-];
-
 export default function FeaturedWorkSection() {
+  const projects = siteConfig.features.featuredWork;
+  const cta = siteConfig.features.featuredWorkCta;
+
   return (
     <section className="py-24 bg-[#151E47] text-white">
       <div className="mx-auto max-w-7xl px-6">
@@ -51,15 +19,15 @@ export default function FeaturedWorkSection() {
               Our Adventures
             </p>
             <h2 className="text-3xl md:text-4xl font-bold mt-2">
-              Selected Campaigns
+              Case Studies
             </h2>
           </div>
 
           <Link
-            href="/adventures"
+            href={cta.href}
             className="hidden md:block text-sm font-semibold text-slate-300 border-b border-slate-600 hover:text-white hover:border-white transition"
           >
-            View All Case Studies
+            {cta.label}
           </Link>
         </div>
 
@@ -113,7 +81,7 @@ export default function FeaturedWorkSection() {
                 </div>
 
                 <Link
-                  href="#"
+                  href={`/adventures/${project.slug}`}
                   className="text-sm font-semibold text-white hover:text-[#FFA205] transition"
                 >
                   Read More →
@@ -126,10 +94,10 @@ export default function FeaturedWorkSection() {
         {/* Mobile CTA */}
         <div className="mt-10 text-center md:hidden">
           <Link
-            href="/adventures"
+            href={cta.href}
             className="text-sm font-semibold text-slate-300 border-b border-slate-600 hover:text-white hover:border-white transition"
           >
-            View All Case Studies
+            {cta.label}
           </Link>
         </div>
       </div>

@@ -4,21 +4,10 @@ import React, { useRef, useState, useEffect, Fragment } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRightIcon } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
-const HeroNav = ({
-  navigationItems = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    { label: "What We Do", href: "/services" },
-    { label: "Our Approach", href: "/approach" },
-    { label: "Media & PR", href: "/media" },
-    { label: "Adventures", href: "/adventures" },
-    { label: "Team", href: "/team" },
-    { label: "Clients", href: "/clients" },
-    { label: "Contact", href: "/contact" },
-  ],
-  navigationPrompt = "Click Menu to Navigate",
-}) => {
+const HeroNav = () => {
+  const { navigationItems, navigationPrompt } = siteConfig.navigation;
   const navRef = useRef(null);
   const sentinelRef = useRef(null);
   const [isSticky, setIsSticky] = useState(false);
@@ -54,22 +43,7 @@ const HeroNav = ({
           </div>
 
           {/* Scrollable Nav */}
-          <div
-            className="
-    flex items-center flex-nowrap
-    overflow-x-auto
-    md:overflow-visible md:flex-wrap
-
-    [scrollbar-width:thin]
-    [scrollbar-color:rgba(34,211,238,0.6)_transparent]
-
-    [&::-webkit-scrollbar]:h-1.5
-    [&::-webkit-scrollbar-track]:bg-transparent
-    [&::-webkit-scrollbar-thumb]:bg-cyan-400/60
-    [&::-webkit-scrollbar-thumb]:rounded-full
-    hover:[&::-webkit-scrollbar-thumb]:bg-cyan-400
-  "
-          >
+          <div className=" flex items-center flex-nowrap overflow-x-auto md:overflow-visible md:flex-wrap">
             {navigationItems.map((item, index) => {
               const isActive =
                 pathname === item.href ||

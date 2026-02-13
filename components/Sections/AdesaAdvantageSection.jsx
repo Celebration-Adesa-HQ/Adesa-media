@@ -1,57 +1,25 @@
-"use client";
+
+import { siteConfig } from "@/config/site";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
-const features = [
-  {
-    id: "1",
-    letter: "A",
-    title: "pplied Insight",
-    description:
-      "We build strategies based on real market and audience insight.",
-  },
-  {
-    id: "2",
-    letter: "D",
-    title: "eep Sector Understanding",
-    description: "We possess in-depth industry knowledge across key markets.",
-  },
-  {
-    id: "3",
-    letter: "E",
-    title: "xecutional Excellence",
-    description:
-      "We go beyond creativity delivering flawless execution for our clients.",
-  },
-  {
-    id: "4",
-    letter: "S",
-    title: "trategic Thinking",
-    description: "Every activity is tied to a bigger strategic objective.",
-  },
-  {
-    id: "5",
-    letter: "A",
-    title: "gile Delivery",
-    description:
-      "We move quickly, adapt, and pivot without losing focus on results.",
-  },
-];
-
 export default function AdesaAdvantageSection() {
+  const features = siteConfig.homepage.adesaAdvantage.theAdvantage;
+  const cta = siteConfig.homepage.adesaAdvantage.adesaAdvantageCta;
+  const backgroundImage = siteConfig.homepage.adesaAdvantage.backgroundImage;
+
   return (
     <section className="relative min-h-screen w-full flex items-center overflow-hidden z-0">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/golden-gate-bridge-california-usa-sunset-colorful-sky-5390x3594-4292.jpg"
+          src={backgroundImage}
           alt="Aerial view of a long bridge over a lush green canyon"
           fill
           className="object-cover brightness-75"
           quality={100}
           priority
         />
-        {/* Optional overlay for better text contrast */}
         <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
@@ -89,10 +57,10 @@ export default function AdesaAdvantageSection() {
           {/* Learn More Link */}
           <div className="flex items-end md:pl-6 pb-2">
             <a
-              href="#"
+              href={cta.href}
               className="inline-flex items-center text-white font-semibold hover:text-[#FFA205] transition-colors group"
             >
-              Learn more about our process
+              {cta.label}
               <ArrowRight className="h-5 w-5 ml-2 transform group-hover:translate-x-2 transition-transform" />
             </a>
           </div>

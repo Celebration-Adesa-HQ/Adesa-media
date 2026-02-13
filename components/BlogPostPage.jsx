@@ -188,10 +188,10 @@ export default function BlogPostPage({ post: postData, relatedPosts, prevPost, n
               <div className="flex items-center">
                 <ChevronRight className="w-4 h-4 text-brand-dark mx-2" />
                 <Link
-                  href="/blog"
+                  href="/media"
                   className="text-brand-blue hover:text-brand-orange font-body transition-colors"
                 >
-                  Blog
+                  Media & PR
                 </Link>
               </div>
             </li>
@@ -212,7 +212,7 @@ export default function BlogPostPage({ post: postData, relatedPosts, prevPost, n
             {/* Featured Image */}
             <div className="relative mb-10 group overflow-hidden rounded-2xl shadow-cardHover">
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/70 to-transparent z-10"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-brand-dark/70 to-transparent z-10"></div>
 
               {/* Text content */}
               <div className="absolute bottom-6 left-6 z-20 max-w-xl text-brand-light font-body">
@@ -247,7 +247,7 @@ export default function BlogPostPage({ post: postData, relatedPosts, prevPost, n
               <Image
                 src={postData.image}
                 alt={postData.title}
-                className="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-125 object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="eager"
                 width={800}
                 height={500}

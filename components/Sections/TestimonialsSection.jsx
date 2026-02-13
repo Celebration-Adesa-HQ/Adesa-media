@@ -1,44 +1,12 @@
+"use client";
+import { siteConfig } from "@/config/site";
 import { motion } from "framer-motion";
 import { Star, StarHalf } from "lucide-react";
 import Image from "next/image";
 
-const testimonials = [
-  {
-    id: 1,
-    title: "Exceptional Results",
-    quote:
-      "Adesa Media transformed our digital presence. Our organic traffic increased by 280%, and conversions are up 150%!",
-    author: "Sarah Johnson",
-    role: "CEO, Tech Innovators Inc.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=faces",
-    stars: 5,
-  },
-  {
-    id: 2,
-    title: "Professional & Reliable",
-    quote:
-      "Working with Adesa Media has been a game-changer. They are professional, responsive, and deliver on their promises.",
-    author: "Michael Chen",
-    role: "Marketing Director, Global Solutions",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=faces",
-    stars: 5,
-  },
-  {
-    id: 3,
-    title: "Creative Excellence",
-    quote:
-      "The creativity and innovation shown by the team are outstanding. Our brand has never looked better!",
-    author: "Emily Rodriguez",
-    role: "Founder, Creative Minds Co.",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=faces",
-    stars: 4.5,
-  },
-];
+export default function TestimonialsSection() {
+  const testimonials = siteConfig.homepage.testimonials;
 
-function TestimonialsSection() {
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -76,7 +44,6 @@ function TestimonialsSection() {
                     testimonial.stars % 1 !== 0 &&
                     starValue === Math.ceil(testimonial.stars)
                   ) {
-                    // Half star implementation using two overlapping stars
                     return (
                       <div key={i} className="relative w-6 h-6">
                         <StarHalf className="w-full h-full text-yellow-500 fill-current" />
@@ -96,13 +63,20 @@ function TestimonialsSection() {
               </p>
 
               <div className="flex items-center gap-3">
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.author}
-                  width={56}
-                  height={56}
-                  className="w-14 h-14 rounded-full border-3 border-[#FFA205] object-cover"
-                />
+                {testimonial.image ? (
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.author}
+                    width={56}
+                    height={56}
+                    className="w-14 h-14 rounded-full border-3 border-[#FFA205] object-cover"
+                  />
+                ) : (
+                  <div
+                    className="w-14 h-14 rounded-full border-3 border-[#FFA205] bg-slate-100"
+                    aria-hidden="true"
+                  />
+                )}
                 <div>
                   <p className="font-semibold text-[#151E47]">
                     {testimonial.author}
@@ -119,5 +93,3 @@ function TestimonialsSection() {
     </motion.section>
   );
 }
-
-export default TestimonialsSection;

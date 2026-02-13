@@ -24,7 +24,7 @@ export const allBlogPosts = [
     `,
     image:
       "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800",
-    link: "/blog/10-content-strategies-to-boost-ranking-in-2024",
+    link: "/media/10-content-strategies-to-boost-ranking-in-2024",
     slug: "10-content-strategies-to-boost-ranking-in-2024",
     author: {
       name: "Sarah Johnson",
@@ -70,7 +70,7 @@ export const allBlogPosts = [
     `,
     image:
       "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=800",
-    link: "/blog/maximizing-ad-spend-with-roi-tracking",
+    link: "/media/maximizing-ad-spend-with-roi-tracking",
     slug: "maximizing-ad-spend-with-roi-tracking",
     author: {
       name: "Michael Chen",
@@ -120,7 +120,7 @@ export const allBlogPosts = [
     `,
     image:
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
-    link: "/blog/psychology-of-color-in-premium-branding",
+    link: "/media/psychology-of-color-in-premium-branding",
     author: {
       name: "Emily Rodriguez",
       avatar:
@@ -145,7 +145,7 @@ export const allBlogPosts = [
     title: "Building a Content Ecosystem That Converts",
     slug: "building-a-content-ecosystem-that-converts",
     excerpt:
-      "Your blog is just one piece of a content ecosystem that should guide users from awareness to conversion.",
+      "Your media is just one piece of a content ecosystem that should guide users from awareness to conversion.",
     image:
       "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=800",
     link: "#",

@@ -16,7 +16,7 @@ export default function TeamPage() {
   return (
     <main className="bg-white">
       <SectionHeading
-        eyebrow="Team"
+        eyebrow="Our People"
         showFullClient={true}
         title="Senior expertise across strategy, creative, and delivery"
         description="Role-led structure built for quality control, accountability, and consistent execution."

@@ -5,40 +5,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
-
-const clients = [
-  { name: "FBN Trustees", logo: "/clients/fbn-trustees.svg" },
-  { name: "Leadway Assurance", logo: "/clients/leadway.svg" },
-  { name: "W Health (Leadway Health)", logo: "/clients/w-health.svg" },
-  { name: "WEMA Bank / ALAT", logo: "/clients/wema-alat.svg" },
-  { name: "FirstBank", logo: "/clients/firstbank.svg" },
-  { name: "FBNQuest", logo: "/clients/fbnquest.svg" },
-  { name: "FCMB (Flexx)", logo: "/clients/fcmb-flexx.svg" },
-  { name: "Toyota (Nigeria) Limited", logo: "/clients/toyota.svg" },
-  { name: "Mikano Motors (Changan)", logo: "/clients/mikano-changan.svg" },
-  { name: "Enterprise Life", logo: "/clients/enterprise-life.svg" },
-  { name: "Health Partners HMO", logo: "/clients/health-partners.svg" },
-  { name: "Black Knight Whisky", logo: "/clients/black-knight.svg" },
-  { name: "New Look Drinks", logo: "/clients/new-look-drinks.svg" },
-  { name: "May & Baker Nigeria", logo: "/clients/may-baker.svg" },
-  { name: "The Meadows (Ibeju-Lekki)", logo: "/clients/the-meadows.svg" },
-  { name: "Greenwich Capital", logo: "/clients/greenwich-capital.svg" },
-];
+import { siteConfig } from "@/config/site";
 
 export default function ClientsSection({ showFullClient = false }) {
+  const clients = siteConfig.client.clients;
+  const { eyebrow, title, description } = siteConfig.client.clientsSection;
+
   const HeadingBlock = (
     <SectionHeading
       showFullClient={showFullClient}
-      eyebrow="Our Clients"
-      title="Trusted by Leading Brands"
-      description="We partner with ambitious brands across finance, healthcare, mobility, and consumer markets."
+      eyebrow={eyebrow}
+      title={title}
+      description={description}
     />
   );
 
   return (
     <section
       className={`overflow-hidden ${
-        showFullClient ? "py-0 pb-24 bg-slate-50" : "py-24 bg-slate-50"
+        showFullClient ? "py-0 pb-24 bg-brand-blue" : "py-24 bg-brand-orange/20"
       }`}
     >
       {showFullClient ? (
@@ -55,18 +40,38 @@ export default function ClientsSection({ showFullClient = false }) {
 
       <Container>
         {showFullClient && (
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
             {clients.map((c) => (
               <div
                 key={c.name}
-                className="flex h-20 items-center justify-center rounded-xl bg-white border border-slate-200"
+                className="
+                group relative flex h-44 items-center justify-center
+                rounded-2xl
+                bg-cyan-400/40
+                border border-brand-blue/10
+                shadow-sm
+                p-6
+                transition
+                hover:-translate-y-1
+                hover:shadow-md
+                hover:border-brand-orange/40
+              "
               >
+                {/* Dark layer for white logos */}
+                <div className="absolute inset-0 rounded-2xl bg-brand-dark opacity-0 group-hover:opacity-5 transition" />
+
                 <Image
                   src={c.logo}
                   alt={c.name}
-                  width={120}
-                  height={48}
-                  className="object-contain grayscale opacity-80"
+                  fill
+                  className="
+                  object-contain
+                  p-6
+                  opacity-90
+                  transition
+                  group-hover:opacity-100
+                  group-hover:scale-105
+                "
                 />
               </div>
             ))}
@@ -83,15 +88,14 @@ export default function ClientsSection({ showFullClient = false }) {
           >
             {[...clients, ...clients].map((c, i) => (
               <div
-                key={`${c.name}-${i}`}
-                className="flex h-16 items-center justify-center rounded-xl bg-white px-10 border border-slate-200"
+                key={c.name + "-" + i}
+                className="relative flex h-48 w-52 py-10 items-center justify-center rounded-xl px-10 "
               >
                 <Image
                   src={c.logo}
                   alt={c.name}
-                  width={120}
-                  height={48}
-                  className="object-contain grayscale opacity-70"
+                  fill
+                  className="object-contain opacity-90 transition hover:opacity-100"
                   priority={i < clients.length}
                 />
               </div>

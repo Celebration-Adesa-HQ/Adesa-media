@@ -7,26 +7,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "../Logo/Logo";
 import ThemeSwitch from "@/app/ThemeSwitch";
 import { useTheme } from "next-themes";
-
-const primaryRoutes = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/services", label: "What We Do" },
-  { href: "/approach", label: "Our Approach" },
-  { href: "/media", label: "Media & PR" },
-];
-
-const secondaryRoutes = [
-  { href: "/adventures", label: "Our Adventures" },
-  { href: "/team", label: "Team" },
-  { href: "/clients", label: "Clients" },
-];
-
-const allRoutes = [
-  ...primaryRoutes,
-  ...secondaryRoutes,
-  { href: "/contact", label: "Contact" },
-];
+import { siteConfig } from "@/config/site";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -35,6 +16,11 @@ export default function Navbar() {
   const { theme } = useTheme();
 
   const isActive = (href) => pathname === href;
+
+  const primaryRoutes = siteConfig.navigation.primary;
+  const secondaryRoutes = siteConfig.navigation.secondary;
+  const ctaRoute = siteConfig.navigation.cta;
+  const allRoutes = [...primaryRoutes, ...secondaryRoutes, { ...ctaRoute }];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -78,11 +64,12 @@ export default function Navbar() {
                   {route.label}
                 </span>
                 {isActive(route.href) && (
-                  <span className="absolute left-0 bottom-0 h-0.5 w-full bg-brand-orange " />
+                  <span className="absolute left-0 bottom-0 h-0.5 w-full bg-brand-orange" />
                 )}
               </Link>
             ))}
 
+            {/* Dropdown for secondary routes */}
             <div className="relative group">
               <button className="flex items-center gap-1 py-3 light:text-brand-blue hover:text-brand-orange transition-colors">
                 More
@@ -96,7 +83,7 @@ export default function Navbar() {
                       className={`block px-4 py-3 text-sm overflow-hidden transition-colors ${
                         isActive(route.href)
                           ? "text-brand-orange font-semibold light:bg-brand-orange/10 dark:bg-brand-orange/20"
-                          : "light:text-brand-blue dark:text-brand-light light:hover:bg-gray-100 dark:hover:bg-white/10 light:hover:text-brand-orange dark:hover:text-brand-orange "
+                          : "light:text-brand-blue dark:text-brand-light light:hover:bg-gray-100 dark:hover:bg-white/10 light:hover:text-brand-orange dark:hover:text-brand-orange"
                       }`}
                     >
                       {route.label}
@@ -110,10 +97,10 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-5">
             <ThemeSwitch />
             <Link
-              href="/contact"
+              href={ctaRoute.href}
               className="rounded-xl bg-brand-orange px-7 py-3 text-sm font-semibold text-brand-dark hover:bg-amber-500 transition-colors"
             >
-              Partner with us
+              {ctaRoute.label}
             </Link>
           </div>
 
@@ -128,7 +115,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile */}
+      {/* Mobile Menu */}
       {open && (
         <div
           className="fixed inset-0 z-50 overscroll-contain lg:hidden"
@@ -154,7 +141,7 @@ export default function Navbar() {
             </div>
 
             {/* Scroll Area */}
-            <nav className="flex-1 px-6 py-8 flex flex-col gap-2 overflow-y-auto overscroll-contain ">
+            <nav className="flex-1 px-6 py-8 flex flex-col gap-2 overflow-y-auto overscroll-contain">
               {allRoutes.map((route) => (
                 <Link
                   key={route.href}
@@ -176,11 +163,11 @@ export default function Navbar() {
               <ThemeSwitch />
 
               <Link
-                href="/contact"
+                href={ctaRoute.href}
                 onClick={() => setOpen(false)}
                 className="w-full rounded-xl bg-brand-orange py-3 text-center font-semibold text-brand-dark hover:bg-amber-500 transition-colors"
               >
-                Partner with us
+                {ctaRoute.label}
               </Link>
             </div>
           </div>

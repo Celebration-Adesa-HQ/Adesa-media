@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar_components/Navbar";
 import TestimonialsSection from "@/components/Sections/TestimonialsSection";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import SloganSection from "@/components/Sections/SloganSection";
 
 export default function AppShell({ children }) {
   const pathname = usePathname();
@@ -23,6 +24,7 @@ const isHome = pathname === "/" || pathname === "/adventures";
         <Navbar activeSection={activeSection} handleNavClick={handleNavClick} />
       )}
       {children}
+      <SloganSection />
       <TestimonialsSection />
       {/* <NewsletterSection /> */}
       <Footer onNavClick={handleNavClick} />
