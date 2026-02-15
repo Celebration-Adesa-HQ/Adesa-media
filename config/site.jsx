@@ -268,7 +268,7 @@ export const siteConfig = {
           "Integrated brand and media campaigns driving strong recall and engagement at the Lagos International Trade Fair.",
         category: "Insurance / Financial Services",
         tags: ["Experiential", "Brand", "Engagement"],
-        image: "/images/leadway-trade-1.jpg",
+        image: "/clients/leadway-assurance.png",
         caseStudyId: 3, // Links to AdventureWork[2]
         slug: "leadway-trade-fair",
       },
@@ -280,7 +280,7 @@ export const siteConfig = {
           "Documentary capturing the real impact of ROSF Business Clinic across Nigeria.",
         category: "Non-Profit / Social Impact",
         tags: ["Documentary", "Storytelling", "Impact"],
-        image: "/images/rosf-1.jpg",
+        image: "",
         caseStudyId: 1, // Links to AdventureWork[0]
         slug: "rosf-business-clinic",
       },
@@ -292,7 +292,7 @@ export const siteConfig = {
           "Campus ambassador program and on-ground activations to drive app adoption among students.",
         category: "Mobility / Ride-Hailing",
         tags: ["Campus", "Activation", "Youth"],
-        image: "/images/indrive-1.jpg",
+        image: "/clients/indrive-logo.svg",
         caseStudyId: 6, // Links to AdventureWork[5]
         slug: "indrive-campus-campaign",
       },

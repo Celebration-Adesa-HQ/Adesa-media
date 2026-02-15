@@ -49,7 +49,7 @@ export default function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="bg-[#2B2B2B] text-white pt-24 pb-12 relative overflow-hidden"
+      className="bg-[#2B2B2B] text-white pt-24 pb-12 relative overflow-hidden z-0"
     >
       
       <div className="absolute top-0 left-0 w-96 h-96 bg-[#FFA205]/5 rounded-full blur-3xl -z-10" />

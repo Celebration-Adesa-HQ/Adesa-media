@@ -7,9 +7,10 @@ import dynamic from "next/dynamic";
 // Lazy load heavy components
 const Navbar = dynamic(() => import("@/components/Navbar_components/Navbar"), {
   ssr: false,
+  loading: () => null,
 });
 
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: false, loading: () => null });
 
 const TestimonialsSection = dynamic(
   () => import("@/components/Sections/TestimonialsSection"),
@@ -18,7 +19,7 @@ const TestimonialsSection = dynamic(
 
 const SloganSection = dynamic(
   () => import("@/components/Sections/SloganSection"),
-  { loading: () => null },
+  { loading: () => null, ssr: false },
 );
 
 const BackToTop = dynamic(() => import("@/components/BackToTop"), {

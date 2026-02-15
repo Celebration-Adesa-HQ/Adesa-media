@@ -1,9 +1,9 @@
-import BlogPostPage from "@/components/BlogPostPage";
 import { allBlogPosts } from "@/components/Blog_components/blogPosts";
+import BlogPostPage from "@/components/BlogPostPage";
 
 export async function generateMetadata({ params }) {
-    const { slug } = await params;
-  const post = allBlogPosts.find(p => p.slug === slug);
+  const { slug } = await params;
+  const post = allBlogPosts.find((p) => p.slug === slug);
 
   if (!post) {
     return {
@@ -92,8 +92,6 @@ function getPaginationLinks(currentSlug, allPosts) {
   return { prevPost, nextPost };
 }
 
-
-
 export default async function BlogDetailPage({ params }) {
   const { slug } = await params;
 
@@ -117,4 +115,3 @@ export default async function BlogDetailPage({ params }) {
     </main>
   );
 }
-

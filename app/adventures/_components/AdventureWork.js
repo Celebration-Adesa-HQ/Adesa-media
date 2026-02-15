@@ -131,7 +131,7 @@ export const AdventureWork = [
       "/case-studies/leadway-creativeblock/image3.jpg",
       "/case-studies/leadway-creativeblock/image4.jpg",
     ],
-    videoUrl: ["/videos/creativeblock.mp4"],
+    videoUrl: [],
     documents: [],
     category: "Experiential Marketing / Youth Engagement",
     tags: ["Youth", "Culture", "Interactive"],
