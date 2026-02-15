@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import AppShell from "./AppShell";
 import { siteConfig } from "@/config/site";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -108,6 +110,8 @@ export default function RootLayout({ children }) {
             <AppShell>{children}</AppShell>
           </Providers>
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
