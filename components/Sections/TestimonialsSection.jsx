@@ -1,11 +1,42 @@
 "use client";
+
+import { useMemo } from "react";
 import { siteConfig } from "@/config/site";
 import { motion } from "framer-motion";
-import { Star, StarHalf } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const Star = dynamic(() => import("lucide-react").then((mod) => mod.Star), {
+  ssr: false,
+});
+const StarHalf = dynamic(
+  () => import("lucide-react").then((mod) => mod.StarHalf),
+  { ssr: false },
+);
 import Image from "next/image";
 
 export default function TestimonialsSection() {
   const testimonials = siteConfig.homepage.testimonials;
+
+  const renderStars = useMemo(
+    () => (stars) =>
+      [...Array(5)].map((_, i) => {
+        const starValue = i + 1;
+        if (starValue <= stars) {
+          return (
+            <Star key={i} className="w-6 h-6 fill-current text-yellow-500" />
+          );
+        } else if (stars % 1 !== 0 && starValue === Math.ceil(stars)) {
+          return (
+            <div key={i} className="relative w-6 h-6">
+              <StarHalf className="w-full h-full text-yellow-500 fill-current" />
+            </div>
+          );
+        } else {
+          return <Star key={i} className="w-6 h-6 text-slate-300" />;
+        }
+      }),
+    [],
+  );
 
   return (
     <motion.section
@@ -31,28 +62,7 @@ export default function TestimonialsSection() {
               className="p-8 rounded-2xl border border-slate-100 bg-white hover:shadow-xl transition-all duration-300"
             >
               <div className="flex text-yellow-500 mb-4">
-                {[...Array(5)].map((_, i) => {
-                  const starValue = i + 1;
-                  if (starValue <= testimonial.stars) {
-                    return (
-                      <Star
-                        key={i}
-                        className="w-6 h-6 fill-current text-yellow-500"
-                      />
-                    );
-                  } else if (
-                    testimonial.stars % 1 !== 0 &&
-                    starValue === Math.ceil(testimonial.stars)
-                  ) {
-                    return (
-                      <div key={i} className="relative w-6 h-6">
-                        <StarHalf className="w-full h-full text-yellow-500 fill-current" />
-                      </div>
-                    );
-                  } else {
-                    return <Star key={i} className="w-6 h-6 text-slate-300" />;
-                  }
-                })}
+                {renderStars(testimonial.stars)}
               </div>
 
               <h4 className="text-xl font-bold text-[#151E47] mb-2">

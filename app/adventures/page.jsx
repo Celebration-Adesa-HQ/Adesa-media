@@ -4,6 +4,34 @@ import AdventuresList from "./_components/AdventuresList";
 import Logo from "@/components/Logo/Logo";
 import HeroNav from "@/components/HeroNav";
 
+export const metadata = {
+  title: "Case Studies & Adventures - Full Service Marketing Agency Lagos",
+  description:
+    "Explore Adesa Media's featured campaigns and adventures. See how our marketing, media, and PR strategies deliver measurable growth and engagement for leading brands.",
+  openGraph: {
+    title: "Case Studies & Adventures - Adesa Media",
+    description:
+      "Discover our campaigns, case studies, and adventures showcasing full-service marketing, media, and PR expertise.",
+    type: "website",
+    url: "https://adesamedia.com/adventures",
+    images: [
+      {
+        url: "/hot-air-balloons-6144x4096-12393.jpg",
+        width: 1920,
+        height: 1080,
+        alt: "Breathtaking landscape of misty mountain peaks at dawn",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Case Studies & Adventures - Adesa Media",
+    description:
+      "Explore how Adesa Media drives brand growth with marketing, media, and PR campaigns.",
+    images: ["/hot-air-balloons-6144x4096-12393.jpg"],
+  },
+};
+
 export default function AdventuresPage() {
   return (
     <main className="relative">
@@ -19,7 +47,6 @@ export default function AdventuresPage() {
             width={1920}
             priority
           />
-
           <div className="absolute inset-0 hero-gradient" />
         </div>
 

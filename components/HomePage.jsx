@@ -1,53 +1,46 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import HeroSection from "./Sections/HeroSection";
-import WhatWeDoSection from "./Sections/WhatWeDoSection";
-import ClientsSection from "./Sections/ClientsSection";
-import FeaturedWorkSection from "./Sections/FeaturedWorkSection";
-import FAQSection from "./Sections/SloganSection";
-import AdesaAdvantageSection from "./Sections/AdesaAdvantageSection";
-import CallToActionSection from "./Sections/CallToActionSection";
-import SloganSection from "./Sections/SloganSection";
+import dynamic from "next/dynamic";
+
+// Lazy load heavy sections
+const HeroSection = dynamic(() => import("./Sections/HeroSection"), {
+  ssr: false,
+});
+const WhatWeDoSection = dynamic(() => import("./Sections/WhatWeDoSection"), {
+  ssr: false,
+});
+const AdesaAdvantageSection = dynamic(
+  () => import("./Sections/AdesaAdvantageSection"),
+  { ssr: false },
+);
+const FeaturedWorkSection = dynamic(
+  () => import("./Sections/FeaturedWorkSection"),
+  { ssr: false },
+);
+const ClientsSection = dynamic(() => import("./Sections/ClientsSection"), {
+  ssr: false,
+});
+const CallToActionSection = dynamic(
+  () => import("./Sections/CallToActionSection"),
+  { ssr: false },
+);
 
 export default function HomePage() {
-
   return (
     <div className="font-body text-brand-dark bg-brand-light scroll-smooth">
-      {/* Hero Section */}
       <HeroSection />
-
-      {/* What We Do */}
       <WhatWeDoSection />
-
-      {/* Adesa Advantage */}
       <AdesaAdvantageSection />
-
-      {/* Featured Work */}
       <FeaturedWorkSection />
-
-      {/* Why Adesa Media */}
-      {/* <WhyChooseUsSection /> */}
-
-      {/* Clients */}
       <ClientsSection />
-
-      {/* Blog Section */}
-      {/* <BlogSection /> */}
-
-      {/* Slogan Section */}
-      <SloganSection />
-
-      {/* Final CTA */}
       <CallToActionSection />
-
-      {/* Contact Section */}
-      {/* <ContactSection /> */}
     </div>
   );
 }
 
-// Add global styles
+// Optional: monitor vitals in dev only
 export function reportWebVitals(metric) {
-  console.log(metric);
+  if (process.env.NODE_ENV === "development") {
+    console.log(metric);
+  }
 }

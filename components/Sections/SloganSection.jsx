@@ -1,14 +1,29 @@
 "use client";
+
+import { useMemo } from "react";
+import dynamic from "next/dynamic";
 import { siteConfig } from "@/config/site";
-import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+
+// Lazy load heavy components
+const MotionSection = dynamic(
+  () => import("framer-motion").then((mod) => mod.motion.section),
+  { ssr: false },
+);
+const QuoteIcon = dynamic(
+  () => import("lucide-react").then((mod) => mod.Quote),
+  { ssr: false },
+);
 
 export default function SloganSection() {
-  const lines = siteConfig.homepage.slogan;
-  const highlights = siteConfig.homepage.sloganHighlights;
+  // Memoize highlights and lines
+  const { lines, highlights } = useMemo(() => {
+    const lines = siteConfig.homepage.slogan;
+    const highlights = siteConfig.homepage.sloganHighlights;
+    return { lines, highlights };
+  }, []);
 
   return (
-    <motion.section
+    <MotionSection
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -22,29 +37,23 @@ export default function SloganSection() {
         <div className="max-w-5xl mx-auto space-y-6">
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-12 bg-[#151E47]/40" />
-            <Quote className="text-[#151E47]" size={28} />
+            <QuoteIcon className="text-[#151E47]" size={28} />
             <div className="h-px w-12 bg-[#151E47]/40" />
           </div>
 
-          {/* Line 1 */}
+          {/* Lines */}
           <p className="text-[#151E47] text-3xl md:text-5xl font-extrabold leading-tight">
             Great <span className={highlights.brands}>brands</span>{" "}
             <span className={highlights.dont}>don&apos;t</span> just happen.
           </p>
-
-          {/* Line 2 */}
           <p className="text-[#151E47]/80 text-lg md:text-2xl leading-relaxed">
             It takes <span className={highlights.time}>time</span>,{" "}
             <span className={highlights.patience}>patience</span> and great
           </p>
-
-          {/* Line 3 */}
           <p className="text-[#151E47]/80 text-lg md:text-2xl leading-relaxed">
             <span className={highlights.strategies}>strategies</span> to build a
             brand that the
           </p>
-
-          {/* Line 4 */}
           <p className="text-[#151E47]/80 text-lg md:text-2xl leading-relaxed">
             <span className={highlights.consumer}>consumer</span> falls in{" "}
             <span className={highlights.love}>love</span> with, One amazing{" "}
@@ -52,6 +61,6 @@ export default function SloganSection() {
           </p>
         </div>
       </div>
-    </motion.section>
+    </MotionSection>
   );
 }

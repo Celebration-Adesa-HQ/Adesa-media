@@ -1,33 +1,66 @@
 "use client";
 
+import { useCallback, useMemo } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar_components/Navbar";
-import TestimonialsSection from "@/components/Sections/TestimonialsSection";
-import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
-import SloganSection from "@/components/Sections/SloganSection";
+import dynamic from "next/dynamic";
+
+// Lazy load heavy components
+const Navbar = dynamic(() => import("@/components/Navbar_components/Navbar"), {
+  ssr: false,
+});
+
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+
+const TestimonialsSection = dynamic(
+  () => import("@/components/Sections/TestimonialsSection"),
+  { loading: () => null },
+);
+
+const SloganSection = dynamic(
+  () => import("@/components/Sections/SloganSection"),
+  { loading: () => null },
+);
+
+const BackToTop = dynamic(() => import("@/components/BackToTop"), {
+  ssr: false,
+});
 
 export default function AppShell({ children }) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const activeSection = pathname === "/" ? "home" : pathname.replace("/", "");
-const isHome = pathname === "/" || pathname === "/adventures";
-  const handleNavClick = (id, path) => {
-    if (pathname === path) return;
-    router.push(path);
-  };
+  // Memoized route checks
+  const isHome = useMemo(() => {
+    return pathname === "/" || pathname === "/adventures";
+  }, [pathname]);
+
+  const activeSection = useMemo(() => {
+    if (pathname === "/") return "home";
+    return pathname.replace("/", "");
+  }, [pathname]);
+
+  // Stable handler
+  const handleNavClick = useCallback(
+    (id, path) => {
+      if (pathname === path) return;
+      router.push(path);
+    },
+    [pathname, router],
+  );
 
   return (
     <>
       {!isHome && (
         <Navbar activeSection={activeSection} handleNavClick={handleNavClick} />
       )}
+
       {children}
+
       <SloganSection />
       <TestimonialsSection />
-      {/* <NewsletterSection /> */}
+
       <Footer onNavClick={handleNavClick} />
+
       <BackToTop />
     </>
   );

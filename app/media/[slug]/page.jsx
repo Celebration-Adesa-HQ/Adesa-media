@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: `${post.title} | Adesa Media`,
+    title: `${post.title}`,
     description: post.excerpt,
     keywords: [
       post.category,

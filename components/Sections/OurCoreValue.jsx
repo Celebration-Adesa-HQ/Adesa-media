@@ -21,7 +21,7 @@ export default function OurCoreValue() {
         </div>
 
         {/* Main Layout */}
-        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 min-h-[600px]">
+        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0 min-h-150">
           {/* SVG Lines */}
           <svg
             className="hidden lg:block absolute inset-0 w-full h-full"

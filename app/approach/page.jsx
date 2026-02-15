@@ -1,9 +1,54 @@
-"use client";
-
 import { SectionHeading } from "@/components/SectionHeading";
 import { siteConfig } from "@/config/site";
 import ChevronSteps from "../media/_components/ChevronSteps";
 import { Container } from "@/components/Container";
+
+export const metadata = {
+  title: "Our Approach - Full-Service Marketing Agency",
+  description:
+    "Discover Adesa Media's proven approach: co-creation, creative storytelling, empathy, and data-driven strategies for measurable growth and impactful campaigns.",
+  keywords: [
+    "Marketing Agency Lagos",
+    "PR Agency Nigeria",
+    "Media Buying Agency",
+    "Brand Strategy Agency",
+    "Digital Marketing Agency",
+    "Full-Service Marketing Agency",
+  ],
+  metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: "/approach",
+  },
+  openGraph: {
+    title: "Our Approach - Adesa Media",
+    description:
+      "Learn how Adesa Media executes marketing campaigns with strategy, creativity, and measurable impact.",
+    url: `${siteConfig.url}/approach`,
+    siteName: "Adesa Media",
+    images: [
+      {
+        url: siteConfig.logo,
+        width: 1200,
+        height: 630,
+        alt: "Adesa Media Approach Overview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Approach - Adesa Media",
+    description:
+      "Discover Adesa Media's approach: co-creation, storytelling, empathy, and data-driven campaigns.",
+    images: [`${siteConfig.logo}`],
+    site: "@adesahq",
+  },
+  icons: {
+    icon: siteConfig.favicon,
+    apple: siteConfig.favicon,
+  },
+};
 
 export default function ApproachPage() {
   const { approach } = siteConfig;

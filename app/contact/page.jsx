@@ -1,39 +1,46 @@
 import ContactSection from "@/components/Sections/ContactSection";
+import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title: "Contact Us",
+  title: "Contact Adesa Media - Full-Service Marketing Agency Lagos",
   description:
-    "Get in touch with Adesa Media. Reach out for media solutions, social media marketing, advertising, influencer campaigns, and media buying.",
-  keywords:
-    "Adesa Media, contact, social media marketing, advertising, influencer marketing, media buying",
-  authors: [{ name: "Adesa Media" }],
-  robots: "index, follow",
+    "Partner with Adesa Media today. Full-service marketing, media, PR, and digital solutions for brands in Lagos, Nigeria.",
+  keywords: [
+    "Marketing Agency Lagos",
+    "Full Service Marketing Agency Nigeria",
+    "Digital Marketing Agency Lagos",
+    "PR Agency Lagos",
+    "Media Buying Agency Nigeria",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/contact`,
+  },
   openGraph: {
-    title: "Contact Us | Adesa Media",
+    title: "Contact Adesa Media - Full-Service Marketing Agency Lagos",
     description:
-      "Get in touch with Adesa Media for branding, social media marketing, advertising, and media solutions.",
-    url: "https://adesamedia.com/contact",
+      "Partner with Adesa Media today. Full-service marketing, media, PR, and digital solutions for brands in Lagos, Nigeria.",
+    url: `${siteConfig.url}/contact`,
     siteName: "Adesa Media",
     images: [
       {
-        url: "https://adesamedia.com/og-image-contact.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Contact Adesa Media",
+        url: siteConfig.logo,
+        width: 800,
+        height: 600,
+        alt: "Adesa Media Logo",
       },
     ],
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us | Adesa Media",
+    title: "Contact Adesa Media - Full-Service Marketing Agency Lagos",
     description:
-      "Reach out to Adesa Media for media solutions, social media marketing, advertising, influencer campaigns, and media buying.",
-    images: ["https://adesamedia.com/og-image-contact.jpg"],
+      "Partner with Adesa Media today. Full-service marketing, media, PR, and digital solutions for brands in Lagos, Nigeria.",
+    creator: "@adesahq",
+    images: [siteConfig.logo],
   },
-  alternates: {
-    canonical: "https://adesamedia.com/contact",
-  },
+  metadataBase: new URL(siteConfig.url),
 };
 
 export default function ContactPage() {
@@ -46,23 +53,32 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
+            "@type": "LocalBusiness",
             name: "Adesa Media",
-            url: "https://adesamedia.com",
-            logo: "https://adesamedia.com/logo.png",
-            contactPoint: [
-              {
-                "@type": "ContactPoint",
-                telephone: "+234-XXX-XXX-XXXX",
-                contactType: "customer service",
-                areaServed: "NG",
-              },
-            ],
+            image: siteConfig.logo,
+            url: siteConfig.url,
+            telephone: siteConfig.contact?.phone?.value ?? "+2347012345154",
+            email: siteConfig.contact?.email?.value ?? "info@adesahq.com",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress:
+                siteConfig.contact?.address?.lines?.[0] ??
+                "2, Isheri Road (2nd Floor)",
+              addressLocality:
+                siteConfig.contact?.address?.lines?.[2] ??
+                "Ojodu Berger, Lagos",
+              postalCode:
+                siteConfig.contact?.address?.lines?.[2]
+                  ?.split(",")[1]
+                  ?.trim() ?? "101233",
+              addressCountry: "NG",
+            },
             sameAs: [
-              "https://www.facebook.com/AdesaMedia",
-              "https://twitter.com/AdesaMedia",
-              "https://www.linkedin.com/company/AdesaMedia",
-            ],
+              siteConfig.socialMedia?.linkedin?.href ?? "",
+              siteConfig.socialMedia?.twitter?.href ?? "",
+              siteConfig.socialMedia?.instagram?.href ?? "",
+              siteConfig.socialMedia?.tiktok?.href ?? "",
+            ].filter(Boolean),
           }),
         }}
       />

@@ -1,12 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import Logo from "../Logo/Logo";
+import { memo } from "react";
+import dynamic from "next/dynamic";
 import { siteConfig } from "@/config/site";
 
-const SectionItem = ({ data, align }) => (
+// Lazy load Image and Logo
+const Image = dynamic(() => import("next/image"), { ssr: false });
+
+const SectionItem = memo(({ data, align }) => (
   <section className="relative w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-24 overflow-hidden">
-    {/* Background Image */}
     <Image
       src={data.backgroundImage}
       alt={`${data.headline} background`}
@@ -15,14 +17,11 @@ const SectionItem = ({ data, align }) => (
       className="object-cover"
     />
 
-    {/* Overlay */}
-    {/* <div
-      className={`absolute inset-0 bg-linear-to-b ${data.overlayLight} dark:${data.overlayDark}`}
-    /> */}
     <div className="absolute inset-0 bg-linear-to-b from-[#003270]/40 to-[#003270]/20 dark:from-[#0f172a]/70 dark:to-[#0f172a]/70" />
 
-    {/* Content */}
-    <div className={`relative max-w-xl z-10 ${align === "right" ? "lg:-mt-28" : ""}`}>
+    <div
+      className={`relative max-w-xl z-10 ${align === "right" ? "lg:-mt-28" : ""}`}
+    >
       <h1 className="text-7xl lg:text-9xl font-black text-white mb-8 tracking-tight drop-shadow-2xl">
         {data.headline.slice(0, -1)}
         <span className="text-[#00AEEF]">{data.highlightLetter}</span>
@@ -34,8 +33,9 @@ const SectionItem = ({ data, align }) => (
       </p>
     </div>
   </section>
-);
+));
 
+SectionItem.displayName = "SectionItem";
 
 export default function MissionAndVisionSection() {
   const { vision, mission } = siteConfig.missionVision;

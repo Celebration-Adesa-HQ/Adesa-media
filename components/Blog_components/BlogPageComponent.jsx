@@ -24,7 +24,7 @@ export default function BlogPageComponent({
       className="py-16 bg-brand-light text-brand-dark font-body"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        {/* <div className="max-w-3xl mx-auto text-center mb-12">
           <span className="inline-block text-brand-orange font-bold tracking-wideLogo uppercase text-xs mb-4">
             Blog
           </span>
@@ -34,7 +34,7 @@ export default function BlogPageComponent({
           <p className="text-lg text-brand-dark/70">
             Strategy, media, branding, and execution from real campaigns.
           </p>
-        </div>
+        </div> */}
 
         <div className="mb-12">
           <div className="flex flex-col sm:flex-row gap-4 mb-6">

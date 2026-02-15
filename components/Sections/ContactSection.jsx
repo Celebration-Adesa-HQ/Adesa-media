@@ -1,56 +1,72 @@
 "use client";
 
-import { siteConfig } from "@/config/site";
-import { motion } from "framer-motion";
-
-import {
-  MapPin,
-  Mail,
-  Phone,
-  Linkedin,
-  Twitter,
-  Instagram,
-  Send,
-} from "lucide-react";
-
+import { useState, useCallback, useMemo } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
-function ContactSection() {
+import { siteConfig } from "@/config/site";
+
+// Lazy-load framer-motion
+const MotionSection = dynamic(
+  () => import("framer-motion").then((mod) => mod.motion.section),
+  { ssr: false },
+);
+
+// Lazy-load icons (tree-shaken)
+const MapPin = dynamic(() => import("lucide-react").then((m) => m.MapPin));
+const Mail = dynamic(() => import("lucide-react").then((m) => m.Mail));
+const Phone = dynamic(() => import("lucide-react").then((m) => m.Phone));
+const Linkedin = dynamic(() => import("lucide-react").then((m) => m.Linkedin));
+const Twitter = dynamic(() => import("lucide-react").then((m) => m.Twitter));
+const Instagram = dynamic(() =>
+  import("lucide-react").then((m) => m.Instagram),
+);
+const Send = dynamic(() => import("lucide-react").then((m) => m.Send));
+
+const initialForm = (services) => ({
+  firstName: "",
+  lastName: "",
+  email: "",
+  service: services[0],
+  message: "",
+});
+
+export default function ContactSection() {
   const { contact, socialMedia } = siteConfig;
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    service: contact.form.services[0],
-    message: "",
-  });
+  // Stable initial state
+  const defaultForm = useMemo(
+    () => initialForm(contact.form.services),
+    [contact.form.services],
+  );
 
-  const handleChange = (e) => {
+  const [formData, setFormData] = useState(defaultForm);
+
+  // Stable change handler
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
 
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-  };
+  }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Stable submit handler
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
 
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      service: contact.form.services[0],
-      message: "",
-    });
-  };
+      // TODO: connect API / email service here
+
+      setFormData(defaultForm);
+    },
+    [defaultForm],
+  );
 
   return (
-    <motion.section
+    <MotionSection
       id={contact.sectionId}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -60,10 +76,8 @@ function ContactSection() {
     >
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-20">
-
           {/* Left */}
           <div className="lg:w-1/2">
-
             <span className="text-[#FFA205] font-bold tracking-widest uppercase text-sm bg-white/10 px-4 py-1 rounded-full inline-block">
               {contact.badge}
             </span>
@@ -72,102 +86,55 @@ function ContactSection() {
               {contact.heading}
             </h2>
 
-            <p className="text-blue-200 text-lg mb-12">
-              {contact.description}
-            </p>
+            <p className="text-blue-200 text-lg mb-12">{contact.description}</p>
 
             <div className="space-y-8">
-
               {/* Address */}
-              <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center">
-                  <MapPin className="text-[#FFA205]" />
-                </div>
-
-                <div>
-                  <h4 className="text-xl font-bold mb-1">
-                    {contact.address.title}
-                  </h4>
-
-                  <p className="text-blue-200">
-                    {contact.address.lines.map((line) => (
-                      <span key={line}>
-                        {line}
-                        <br />
-                      </span>
-                    ))}
-                  </p>
-                </div>
-              </div>
+              <InfoItem
+                icon={<MapPin className="text-[#FFA205]" />}
+                title={contact.address.title}
+                content={contact.address.lines}
+              />
 
               {/* Email */}
-              <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center">
-                  <Mail className="text-[#FFA205]" />
-                </div>
-
-                <div>
-                  <h4 className="text-xl font-bold mb-1">
-                    {contact.email.title}
-                  </h4>
-
-                  <p className="text-blue-200">
-                    {contact.email.value}
-                  </p>
-                </div>
-              </div>
+              <InfoItem
+                icon={<Mail className="text-[#FFA205]" />}
+                title={contact.email.title}
+                content={[contact.email.value]}
+              />
 
               {/* Phone */}
-              <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center">
-                  <Phone className="text-[#FFA205]" />
-                </div>
-
-                <div>
-                  <h4 className="text-xl font-bold mb-1">
-                    {contact.phone.title}
-                  </h4>
-
-                  <p className="text-blue-200">
-                    {contact.phone.value}
-                  </p>
-                </div>
-              </div>
-
+              <InfoItem
+                icon={<Phone className="text-[#FFA205]" />}
+                title={contact.phone.title}
+                content={[contact.phone.value]}
+              />
             </div>
 
             {/* Social */}
             <div className="mt-12 flex items-center gap-6">
-
               <p className="font-bold text-[#FFA205] uppercase tracking-widest text-sm">
                 {contact.followLabel}
               </p>
 
               <div className="flex gap-4">
-
-                <Link
+                <SocialLink
                   href={socialMedia.linkedin.href}
-                  aria-label="LinkedIn"
-                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
-                >
-                  <Linkedin />
-                </Link>
+                  label="LinkedIn"
+                  icon={<Linkedin />}
+                />
 
-                <Link
+                <SocialLink
                   href={socialMedia.twitter.href}
-                  aria-label="Twitter"
-                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
-                >
-                  <Twitter />
-                </Link>
+                  label="Twitter"
+                  icon={<Twitter />}
+                />
 
-                <Link
+                <SocialLink
                   href={socialMedia.instagram.href}
-                  aria-label="Instagram"
-                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
-                >
-                  <Instagram />
-                </Link>
+                  label="Instagram"
+                  icon={<Instagram />}
+                />
 
                 <Link
                   href={socialMedia.tiktok.href}
@@ -181,53 +148,40 @@ function ContactSection() {
                     alt="TikTok"
                   />
                 </Link>
-
               </div>
             </div>
-
           </div>
 
           {/* Right */}
           <div className="lg:w-1/2">
-
             <div className="bg-white p-8 md:p-10 rounded-3xl text-[#151E47] shadow-2xl">
-
               <h3 className="text-3xl font-bold mb-8">
                 {contact.form.heading}
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                  <input
+                  <Input
                     name="firstName"
-                    placeholder={contact.form.fields.firstName}
                     value={formData.firstName}
+                    placeholder={contact.form.fields.firstName}
                     onChange={handleChange}
-                    required
-                    className="w-full px-5 py-4 bg-slate-50 border rounded-2xl"
                   />
 
-                  <input
+                  <Input
                     name="lastName"
-                    placeholder={contact.form.fields.lastName}
                     value={formData.lastName}
+                    placeholder={contact.form.fields.lastName}
                     onChange={handleChange}
-                    required
-                    className="w-full px-5 py-4 bg-slate-50 border rounded-2xl"
                   />
-
                 </div>
 
-                <input
+                <Input
                   type="email"
                   name="email"
-                  placeholder={contact.form.fields.email}
                   value={formData.email}
+                  placeholder={contact.form.fields.email}
                   onChange={handleChange}
-                  required
-                  className="w-full px-5 py-4 bg-slate-50 border rounded-2xl"
                 />
 
                 <select
@@ -237,16 +191,14 @@ function ContactSection() {
                   className="w-full px-5 py-4 bg-slate-50 border rounded-2xl"
                 >
                   {contact.form.services.map((service) => (
-                    <option key={service}>
-                      {service}
-                    </option>
+                    <option key={service}>{service}</option>
                   ))}
                 </select>
 
                 <textarea
                   name="message"
-                  placeholder={contact.form.fields.message}
                   value={formData.message}
+                  placeholder={contact.form.fields.message}
                   onChange={handleChange}
                   required
                   rows={4}
@@ -260,17 +212,64 @@ function ContactSection() {
                   {contact.form.submitLabel}
                   <Send className="w-5 h-5" />
                 </button>
-
               </form>
-
             </div>
-
           </div>
-
         </div>
       </div>
-    </motion.section>
+    </MotionSection>
   );
 }
 
-export default ContactSection;
+/* -------------------------------- */
+/* Reusable Subcomponents */
+/* -------------------------------- */
+
+function InfoItem({ icon, title, content }) {
+  return (
+    <div className="flex items-start gap-6">
+      <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center">
+        {icon}
+      </div>
+
+      <div>
+        <h4 className="text-xl font-bold mb-1">{title}</h4>
+
+        <p className="text-blue-200">
+          {content.map((line) => (
+            <span key={line}>
+              {line}
+              <br />
+            </span>
+          ))}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function SocialLink({ href, label, icon }) {
+  return (
+    <Link
+      href={href}
+      aria-label={label}
+      className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
+    >
+      {icon}
+    </Link>
+  );
+}
+
+function Input({ type = "text", name, value, placeholder, onChange }) {
+  return (
+    <input
+      type={type}
+      name={name}
+      value={value}
+      placeholder={placeholder}
+      onChange={onChange}
+      required
+      className="w-full px-5 py-4 bg-slate-50 border rounded-2xl"
+    />
+  );
+}

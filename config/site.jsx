@@ -1,6 +1,12 @@
 export const siteConfig = {
-  // Website bio
-  bio: "We empower brands with media, marketing, and PR systems built for growth",
+  // Global site settings
+  title: "Adesa Media - Full-Service Marketing Agency",
+  description:
+    "Adesa Media is a leading full-service marketing agency that empowers brands with media, marketing, and PR systems built for growth, visibility, and long-term relevance.",
+  url: "https://adesamedia.com",
+  defaultLanguage: "en",
+  logo: "/Adesa-media-logo-black.png",
+  favicon: "@/app/favicon.ico",
 
   // Navigation links
   navigation: {
@@ -656,9 +662,9 @@ export const siteConfig = {
   mediaPR: {
     hero: {
       eyebrow: "Media and PR",
-      title: "Planning, tools, and standards built for accountability",
+      title: "Latest Articles",
       description:
-        "Professional, data-focused workflows across media planning, verification, and public relations execution.",
+        "Strategy, media, branding, and execution from real campaigns.",
     },
   },
 
@@ -716,4 +722,24 @@ export const siteConfig = {
       submitLabel: "Send Message",
     },
   },
+
+  // Team Section
+  team: [
+    {
+      name: "David Okoye",
+      role: "Creative Director",
+      slug: "david-okoye",
+      image: "/Adesa-media-logo-black.png",
+      bio: "Leads brand strategy and visual direction.",
+      skills: ["Branding", "Design", "Leadership"],
+    },
+    {
+      name: "Aisha Bello",
+      role: "UX Lead",
+      slug: "aisha-bello",
+      image: "/Adesa-media-logo-black.png",
+      bio: "Designs human-centered digital products.",
+      skills: ["UX", "Research", "Prototyping"],
+    },
+  ],
 };
