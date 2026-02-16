@@ -4,7 +4,6 @@ import Link from "next/link";
 import { X } from "lucide-react";
 
 import Logo from "../Logo/Logo";
-import ThemeSwitch from "@/app/ThemeSwitch";
 
 export default function NavbarMobile({
   routes,
@@ -61,8 +60,6 @@ export default function NavbarMobile({
 
         {/* Footer */}
         <div className="border-t border-gray-200 dark:border-white/10 px-6 py-6 flex flex-col gap-4">
-          <ThemeSwitch />
-
           <Link
             href={cta.href}
             onClick={close}

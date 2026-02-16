@@ -145,7 +145,7 @@ export default function Footer() {
             </h4>
             <p className="text-slate-400 mb-6">{newsletter.description}</p>
             <motion.a
-              href="https://www.linkedin.com/newsletters/the-adesa-lens-7352962421847638016/"
+              href={newsletter.url}
               target="_blank"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

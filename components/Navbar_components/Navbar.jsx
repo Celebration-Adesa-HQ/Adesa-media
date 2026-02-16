@@ -11,11 +11,6 @@ import { useTheme } from "next-themes";
 import Logo from "../Logo/Logo";
 import { siteConfig } from "@/config/site";
 
-// Lazy load heavy parts
-const ThemeSwitch = dynamic(() => import("@/app/ThemeSwitch"), {
-  ssr: false,
-});
-
 const MobileMenu = dynamic(() => import("./NavbarMobile"), {
   ssr: false,
   loading: () => null,
@@ -162,8 +157,6 @@ export default function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-5">
-              <ThemeSwitch />
-
               <Link
                 href={ctaRoute.href}
                 className="rounded-xl bg-brand-orange px-7 py-3 text-sm font-semibold text-brand-dark hover:bg-amber-500 transition-colors"

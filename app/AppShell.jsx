@@ -5,6 +5,11 @@ import { usePathname, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 
 // Lazy load heavy components
+const SubscribeCard = dynamic(() => import("@/components/SubscribeCard"), {
+  ssr: false,
+  loading: () => null,
+});
+
 const Navbar = dynamic(() => import("@/components/Navbar_components/Navbar"), {
   ssr: false,
   loading: () => null,
@@ -59,7 +64,7 @@ export default function AppShell({ children }) {
 
       <SloganSection />
       <TestimonialsSection />
-
+      <SubscribeCard buttonText="Subscribe on LinkedIn" className="px-44 py-28 flex flex-col align-center justify-center " />
       <Footer onNavClick={handleNavClick} />
 
       <BackToTop />

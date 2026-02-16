@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useMemo } from "react";
+import { memo, useMemo, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -8,13 +8,8 @@ import dynamic from "next/dynamic";
 import { siteConfig } from "@/config/site";
 
 // Lazy components
-const Logo = dynamic(() => import("../Logo/Logo"), {
-  ssr: false,
-});
-
-const HeroNav = dynamic(() => import("../HeroNav"), {
-  ssr: false,
-});
+const Logo = dynamic(() => import("../Logo/Logo"), { ssr: false });
+const HeroNav = dynamic(() => import("../HeroNav"), { ssr: false });
 
 const ArrowRight = dynamic(
   () => import("lucide-react").then((m) => m.ArrowRight),
@@ -29,32 +24,56 @@ const HeroSection = memo(function HeroSection({
   className = "",
   "data-id": dataId,
 }) {
-  // Memoized config
   const heroConfig = useMemo(() => {
     return siteConfig.homepage.hero;
   }, []);
 
-  const { backgroundImage, logoColor, ctaPrimary, ctaSecondary } = heroConfig;
+  const { backgroundImages, logoColor, ctaPrimary, ctaSecondary } = heroConfig;
+
+  // Carousel state
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Auto slide
+  useEffect(() => {
+    if (!backgroundImages?.length) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((prev) =>
+        prev === backgroundImages.length - 1 ? 0 : prev + 1,
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [backgroundImages]);
 
   return (
     <section
       data-id={dataId}
       className={`relative w-full min-h-dvh overflow-hidden flex flex-col ${className}`}
     >
-      {/* Background */}
-      <Image
-        src={backgroundImage}
-        alt="Hero background"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      {/* Background Carousel */}
+      <div className="absolute inset-0 z-0">
+        {backgroundImages.map((src, index) => (
+          <Image
+            key={src}
+            src={src}
+            alt="Hero background"
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            className={`
+              object-cover object-center
+              transition-opacity duration-1000
+              ${index === activeIndex ? "opacity-100" : "opacity-0"}
+            `}
+          />
+        ))}
+      </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30 z-0" />
+      <div className="absolute inset-0 bg-black/30 z-10" />
 
-      <div className="relative z-10 flex flex-col flex-1">
+      <div className="relative z-20 flex flex-col flex-1">
         {/* Header */}
         <header className="flex items-center justify-end px-6 md:px-12 pt-6 md:pt-8">
           {logo || <Logo color={logoColor} />}
