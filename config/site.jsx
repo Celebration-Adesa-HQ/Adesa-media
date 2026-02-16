@@ -262,7 +262,7 @@ export const siteConfig = {
           "Join 5,000+ subscribers receiving our weekly growth insights.",
         placeholder: "Email address",
         submitLabel: "Subscribe",
-        url: "https://www.linkedin.com/newsletters/the-adesa-lens-7352962421847638016/",  
+        url: "https://www.linkedin.com/newsletters/the-adesa-lens-7352962421847638016/",
       },
       contact: {
         address:
@@ -350,7 +350,8 @@ export const siteConfig = {
           "Documentary capturing the real impact of ROSF Business Clinic across Nigeria.",
         category: "Non-Profit / Social Impact",
         tags: ["Documentary", "Storytelling", "Impact"],
-        image: "",
+        image:
+          "https://i0.wp.com/mydailybells.com.ng/wp-content/uploads/2022/02/LNLq3Wuk.jpg?resize=512%2C445&ssl=1",
         caseStudyId: 1, // Links to AdventureWork[0]
         slug: "rosf-business-clinic",
       },
@@ -408,6 +409,18 @@ export const siteConfig = {
         width: 120,
         height: 60,
       },
+      {
+        name: "Rose of Sharon Foundation",
+        logo: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSiVB2BdidbWAwVmd2r7Aaj67xrU8FNuxGr2TzgTtlMF1jg93kt",
+        width: 120,
+        height: 60,
+      },
+      {
+        name: "Nigeria For Women Project",
+        logo: "https://radionigeriaibadan.gov.ng/wp-content/uploads/2023/07/Nigeria-for-Women-Project-NFWP-2.jpg",
+        width: 120,
+        height: 60,
+      }
     ],
 
     clientsSection: {

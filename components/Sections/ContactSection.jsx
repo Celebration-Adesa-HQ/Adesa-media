@@ -55,14 +55,33 @@ export default function ContactSection() {
 
   // Stable submit handler
   const handleSubmit = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
 
-      // TODO: connect API / email service here
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
 
-      setFormData(defaultForm);
+        const data = await res.json();
+
+        if (!data.success) {
+          throw new Error("Failed");
+        }
+
+        alert("Message sent");
+
+        setFormData(defaultForm);
+      } catch (err) {
+        console.error(err);
+        alert("Send failed. Try again.");
+      }
     },
-    [defaultForm],
+    [defaultForm, formData],
   );
 
   return (
