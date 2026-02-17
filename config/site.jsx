@@ -129,7 +129,7 @@ export const siteConfig = {
   // Homepage content
   homepage: {
     hero: {
-      headline: "We are Leading Full-Service Agency",
+      headline: "We are a Leading Full-Service Agency",
       description:
         "We empower brands with media, marketing, and PR systems built for growth, visibility, and long-term relevance.",
       backgroundImages: [
@@ -344,17 +344,17 @@ export const siteConfig = {
       },
       {
         id: 2,
-        brand: "ROSF",
-        title: "ROSF Business Clinic Impact Documentary",
+        brand: "OGSGRAHomes",
+        title: "Ogun State GRA Regeneration Scheme",
         description:
-          "Documentary capturing the real impact of ROSF Business Clinic across Nigeria.",
-        category: "Non-Profit / Social Impact",
-        tags: ["Documentary", "Storytelling", "Impact"],
-        image:
-          "https://i0.wp.com/mydailybells.com.ng/wp-content/uploads/2022/02/LNLq3Wuk.jpg?resize=512%2C445&ssl=1",
-        caseStudyId: 1, // Links to AdventureWork[0]
-        slug: "rosf-business-clinic",
+          "Strategic communications and campaign materials for the Ogun State GRA urban regeneration and housing initiative.",
+        category: "Public Sector / Urban Development",
+        tags: ["Campaign", "Strategy", "Urban Development"],
+        image: "/case-studies/ogra-regeneration/image1.png",
+        caseStudyId: 2, // Links to AdventureWork[1]
+        slug: "ogra-regeneration-scheme",
       },
+
       {
         id: 3,
         brand: "inDrive",
@@ -420,7 +420,7 @@ export const siteConfig = {
         logo: "https://radionigeriaibadan.gov.ng/wp-content/uploads/2023/07/Nigeria-for-Women-Project-NFWP-2.jpg",
         width: 120,
         height: 60,
-      }
+      },
     ],
 
     clientsSection: {
