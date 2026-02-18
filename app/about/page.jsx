@@ -3,7 +3,6 @@ import OurCoreValue from "@/components/Sections/OurCoreValue";
 import WhyChooseUsSection from "@/components/Sections/WhyChooseUsSection";
 import { siteConfig } from "@/config/site";
 
-
 export const metadata = {
   title: "About Adesa Media - Full-Service Marketing Agency in Lagos",
   description:
@@ -46,9 +45,6 @@ export const metadata = {
   icons: {
     icon: siteConfig.favicon,
     apple: siteConfig.favicon,
-  },
-  verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE",
   },
 };
 
