@@ -3,7 +3,7 @@ import { AdventureWork } from "@/app/adventures/_components/AdventureWork";
 import { siteConfig } from "@/config/site";
 
 export default function sitemap() {
-  const baseUrl = "https://adesamedia.com";
+  const baseUrl = siteConfig.url || "https://adesamedia.com";
 
   // Static pages
   const staticPages = [

@@ -15,7 +15,7 @@ export const metadata = {
     siteName: "Adesa Media",
     images: [
       {
-        url: "/Adesa-media-logo-white.png",
+        url: `${siteConfig.url}/Adesa-media-logo-white.png`,
         width: 800,
         height: 600,
         alt: "Adesa Media Logo",
@@ -29,7 +29,7 @@ export const metadata = {
     title: "Team - Adesa Media",
     description:
       "Meet the experts behind strategy, creative, and media execution at Adesa Media.",
-    images: ["https://adesamedia.com/Adesa-media-logo-black.png"],
+    images: [`${siteConfig.url}/Adesa-media-logo-black.png`],
     creator: "@adesahq",
   },
   alternates: {

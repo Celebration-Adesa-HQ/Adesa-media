@@ -27,7 +27,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/Adesa-media-logo-black.png",
+        url: `${siteConfig.url}/Adesa-media-logo-black.png`,
         width: 1200,
         height: 630,
         alt: "Adesa Media Marketing Agency",
@@ -39,10 +39,10 @@ export const metadata = {
     title: "Full Service Marketing Agency in Lagos | Adesa Media",
     description:
       "Brand strategy, media buying, PR, and digital marketing built for measurable growth.",
-    images: ["/Adesa-media-logo-black.png"],
+    images: [`${siteConfig.url}/Adesa-media-logo-black.png`],
   },
 };
 
 export default function Home() {
-return <HomePage />;
+  return <HomePage />;
 }

@@ -2,25 +2,31 @@
 import { notFound } from "next/navigation";
 import AdventureGallery from "./_components/AdventureGallery";
 import { AdventureWork } from "../_components/AdventureWork";
+import { siteConfig } from "@/config/site";
 
 export async function generateMetadata({ params }) {
-   const { id } = await params;
+  const { id } = await params;
   const adventure = AdventureWork.find((a) => a.slug === id);
 
   if (!adventure) return { title: "Adventure Not Found" };
 
+  const rawImage = adventure.images?.[0] || "/Adesa-media-logo-black.png";
+  const imageUrl = rawImage?.startsWith("http")
+    ? rawImage
+    : `${siteConfig.url}${rawImage.startsWith("/") ? "" : "/"}${rawImage}`;
+
   return {
     title: `${adventure.title} | Adesa Media Adventures`,
     description: adventure.description,
-    canonical: `https://adesamedia.com/adventures/${adventure.slug}`,
+    canonical: `${siteConfig.url}/adventures/${adventure.slug}`,
     openGraph: {
       title: adventure.title,
       description: adventure.description,
-      url: `https://adesamedia.com/adventures/${adventure.slug}`,
+      url: `${siteConfig.url}/adventures/${adventure.slug}`,
       siteName: "Adesa Media",
       images: [
         {
-          url: adventure.images[0] || "/Adesa-media-logo-black.png",
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: adventure.title,
@@ -32,7 +38,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: adventure.title,
       description: adventure.description,
-      images: [adventure.images[0] || "/Adesa-media-logo-black.png"],
+      images: [imageUrl],
       site: "@adesahq",
     },
   };

@@ -37,7 +37,7 @@ export const metadata = {
     title: "Marketing & Branding Services | Adesa Media",
     description:
       "End-to-end marketing solutions: brand strategy, media buying, digital marketing, and PR.",
-    images: ["/images/adesa-services-og.jpg"],
+    images: [`${siteConfig.url}/images/adesa-services-og.jpg`],
     site: "@adesahq",
     creator: "@adesahq",
   },

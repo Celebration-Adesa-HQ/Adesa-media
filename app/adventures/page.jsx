@@ -14,7 +14,7 @@ export const metadata = {
     url: "https://adesamedia.com/adventures",
     images: [
       {
-        url: "/hot-air-balloons-6144x4096-12393.jpg",
+        url: `${siteConfig.url}/hot-air-balloons-6144x4096-12393.jpg`,
         width: 1920,
         height: 1080,
         alt: "Breathtaking landscape of misty mountain peaks at dawn",
@@ -26,7 +26,7 @@ export const metadata = {
     title: "Case Studies & Adventures - Adesa Media",
     description:
       "Explore how Adesa Media drives brand growth with marketing, media, and PR campaigns.",
-    images: ["/hot-air-balloons-6144x4096-12393.jpg"],
+    images: [`${siteConfig.url}/hot-air-balloons-6144x4096-12393.jpg`],
   },
 };
 

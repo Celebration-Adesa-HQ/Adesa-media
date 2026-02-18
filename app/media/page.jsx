@@ -18,7 +18,7 @@ export const metadata = {
     siteName: siteConfig.title,
     images: [
       {
-        url: "/Adesa-media-logo-black.png",
+        url: `${siteConfig.url}/Adesa-media-logo-black.png`,
         width: 800,
         height: 600,
         alt: "Adesa Media Logo",
@@ -33,7 +33,7 @@ export const metadata = {
       "Explore Adesa Media's Media & PR services. Full-service marketing agency offering media buying, PR strategy, and digital campaigns for brands in Nigeria.",
     site: "@adesahq",
     creator: "@adesahq",
-    images: ["/Adesa-media-logo-black.png"],
+    images: [`${siteConfig.url}/Adesa-media-logo-black.png`],
   },
 };
 
