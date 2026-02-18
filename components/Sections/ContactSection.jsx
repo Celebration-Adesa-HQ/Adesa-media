@@ -34,6 +34,8 @@ const initialForm = (services) => ({
 
 export default function ContactSection() {
   const { contact, socialMedia } = siteConfig;
+  const [isLoading, setIsLoading] = useState(false);
+  const [feedback, setFeedback] = useState(null); // { type: "success"|"error", message: string }
 
   // Stable initial state
   const defaultForm = useMemo(
@@ -53,36 +55,36 @@ export default function ContactSection() {
     }));
   }, []);
 
-  // Stable submit handler
-  const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
 
-      try {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+const handleSubmit = useCallback(
+  async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setFeedback(null);
 
-        const data = await res.json();
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-        if (!data.success) {
-          throw new Error("Failed");
-        }
+      const data = await res.json();
 
-        alert("Message sent");
+      if (!data.success) throw new Error(data.error || "Failed");
 
-        setFormData(defaultForm);
-      } catch (err) {
-        console.error(err);
-        alert("Send failed. Try again.");
-      }
-    },
-    [defaultForm, formData],
-  );
+      setFeedback({ type: "success", message: "Message sent successfully" });
+      setFormData(defaultForm);
+    } catch (err) {
+      console.error(err);
+      setFeedback({ type: "error", message: "Send failed. Try again." });
+    } finally {
+      setIsLoading(false);
+    }
+  },
+  [defaultForm, formData],
+);
+
 
   return (
     <MotionSection
@@ -226,10 +228,35 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
+                  disabled={isLoading}
                   className="w-full bg-[#FFA205] text-[#151E47] font-bold py-5 rounded-2xl text-lg flex items-center justify-center gap-3"
                 >
-                  {contact.form.submitLabel}
-                  <Send className="w-5 h-5" />
+                  {isLoading ? (
+                    <svg
+                      className="w-5 h-5 animate-spin"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v8H4z"
+                      />
+                    </svg>
+                  ) : (
+                    <>
+                      {contact.form.submitLabel}
+                      <Send className="w-5 h-5" />
+                    </>
+                  )}
                 </button>
               </form>
             </div>
