@@ -24,7 +24,7 @@ export async function POST(req) {
 
     const { firstName, lastName, email, service, message } = parsed.data;
 
-    const response = await resend.emails.send({
+    await resend.emails.send({
       from: `Adesa media Website Contact <${process.env.RESEND_FROM}>`,
       to: [process.env.RESEND_ADMIN],
       replyTo: email,
