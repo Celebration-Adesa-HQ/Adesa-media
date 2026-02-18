@@ -76,7 +76,7 @@ export const metadata = {
     description:
       "Strategic branding, media buying, PR, digital campaigns, and OOH advertising for ambitious brands.",
     creator: "@adesahq",
-    images: [`${siteConfig.logo}`],
+    images: ["https://adesamedia.com/og-main.jpg"],
   },
   robots: {
     index: true,
@@ -112,6 +112,29 @@ export default function RootLayout({ children }) {
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Adesa Media",
+              url: "https://adesamedia.com",
+              logo: "https://adesamedia.com/logo.png",
+              description: "Full service marketing agency in Lagos, Nigeria.",
+              sameAs: [
+                "https://twitter.com/adesahq",
+                "https://instagram.com/adesamedia",
+                "https://linkedin.com/company/adesamedia",
+              ],
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Lagos",
+                addressCountry: "NG",
+              },
+            }),
+          }}
+        />
       </body>
     </html>
   );
