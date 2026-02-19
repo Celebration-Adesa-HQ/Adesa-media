@@ -19,7 +19,7 @@ export const metadata = {
     description:
       "Trusted by leading brands, Adesa Media delivers marketing, media, and PR solutions across Nigeria. See our client portfolio and success stories.",
     url: `${siteConfig.url}/clients`,
-    siteName: "Adesa Media",
+    siteName: siteConfig.title,
     type: "website",
     images: [
       {
@@ -36,7 +36,7 @@ export const metadata = {
     description:
       "Trusted by leading brands, Adesa Media delivers marketing, media, and PR solutions across Nigeria. See our client portfolio and success stories.",
     images: [`${siteConfig.logo}`],
-    site: "@adesahq",
+    site: siteConfig.seo.twitter.creator,
   },
   metadataBase: new URL(siteConfig.url),
   alternates: {

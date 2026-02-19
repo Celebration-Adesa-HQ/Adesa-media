@@ -24,7 +24,7 @@ export const metadata = {
     description:
       "Learn how Adesa Media executes marketing campaigns with strategy, creativity, and measurable impact.",
     url: `${siteConfig.url}/approach`,
-    siteName: "Adesa Media",
+    siteName: siteConfig.title,
     images: [
       {
         url: siteConfig.logo,
@@ -225,7 +225,6 @@ export default function ApproachPage() {
           </div>
         </Container>
       </section>
-
     </div>
   );
 }

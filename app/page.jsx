@@ -23,7 +23,7 @@ export const metadata = {
     description:
       "Strategy, media, PR, and digital campaigns built for growth. Adesa Media partners with brands across Nigeria to deliver measurable marketing performance.",
     url: "/",
-    siteName: "Adesa Media",
+    siteName: siteConfig.title,
     type: "website",
     images: [
       {

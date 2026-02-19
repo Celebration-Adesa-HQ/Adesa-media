@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
       title: adventure.title,
       description: adventure.description,
       url: `${siteConfig.url}/adventures/${adventure.slug}`,
-      siteName: "Adesa Media",
+      siteName: siteConfig.title,
       images: [
         {
           url: imageUrl,

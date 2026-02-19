@@ -13,7 +13,7 @@ export const metadata = {
     description:
       "Our senior team delivers strategy, creativity, and execution for leading brands across marketing, media, and PR.",
     url: "https://adesamedia.com/team",
-    siteName: "Adesa Media",
+    siteName: siteConfig.title,
     images: [
       {
         url: `${siteConfig.url}/Adesa-media-logo-white.png`,
@@ -31,7 +31,7 @@ export const metadata = {
     description:
       "Meet the experts behind strategy, creative, and media execution at Adesa Media.",
     images: [`${siteConfig.url}/Adesa-media-logo-black.png`],
-    creator: "@adesahq",
+    creator: siteConfig.seo.twitter.creator,
   },
   alternates: {
     canonical: "https://adesamedia.com/team",

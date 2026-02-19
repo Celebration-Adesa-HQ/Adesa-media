@@ -22,7 +22,7 @@ export const metadata = {
     description:
       "Discover Adesa Media’s end-to-end marketing solutions including brand strategy, media buying, digital marketing, and PR.",
     url: `${siteConfig.url}/services`,
-    siteName: "Adesa Media",
+    siteName: siteConfig.title,
     type: "website",
     images: [
       {
@@ -40,7 +40,7 @@ export const metadata = {
       "End-to-end marketing solutions: brand strategy, media buying, digital marketing, and PR.",
     images: [`${siteConfig.url}/images/adesa-services-og.jpg`],
     site: "@adesahq",
-    creator: "@adesahq",
+    creator: siteConfig.seo.twitter.creator,
   },
 };
 

@@ -20,7 +20,7 @@ export const metadata = {
     description:
       "Partner with Adesa Media today. Full-service marketing, media, PR, and digital solutions for brands in Lagos, Nigeria.",
     url: `${siteConfig.url}/contact`,
-    siteName: "Adesa Media",
+    siteName: siteConfig.title,
     images: [
       {
         url: siteConfig.logo,
@@ -37,7 +37,7 @@ export const metadata = {
     title: "Contact Adesa Media - Full-Service Marketing Agency Lagos",
     description:
       "Partner with Adesa Media today. Full-service marketing, media, PR, and digital solutions for brands in Lagos, Nigeria.",
-    creator: "@adesahq",
+    creator: siteConfig.seo.twitter.creator,
     images: [siteConfig.logo],
   },
   metadataBase: new URL(siteConfig.url),
