@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container";
 import AdventuresList from "./_components/AdventuresList";
 import HeroCarousel from "./_components/HeroCarousel";
+import { siteConfig } from "@/config/site";
 
 export const metadata = {
   title: "Case Studies & Adventures - Full Service Marketing Agency",
