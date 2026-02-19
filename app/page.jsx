@@ -13,7 +13,10 @@ export const metadata = {
     "PR Agency Lagos",
     "Digital Marketing Agency Nigeria",
   ],
-
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   metadataBase: new URL(siteConfig.url),
   alternates: {
     canonical: "/",

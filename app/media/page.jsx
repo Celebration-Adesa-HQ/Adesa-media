@@ -10,6 +10,10 @@ export const metadata = {
   alternates: {
     canonical: "/media",
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Media & PR Agency Nigeria | Adesa Media",
     description:

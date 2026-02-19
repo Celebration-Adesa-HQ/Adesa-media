@@ -8,6 +8,10 @@ export const metadata = {
   description:
     "Meet the leadership and experts at Adesa Media. Senior team driving strategy, creative, and media execution for brands in Lagos and Nigeria.",
   metadataBase: new URL(siteConfig.url),
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Team - Adesa Media",
     description:

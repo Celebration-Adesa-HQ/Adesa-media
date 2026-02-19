@@ -13,6 +13,10 @@ export const metadata = {
     "Media Buying Agency Lagos",
     "PR Agency Lagos",
   ],
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   alternates: {
     canonical: `${siteConfig.url}/services`,
   },

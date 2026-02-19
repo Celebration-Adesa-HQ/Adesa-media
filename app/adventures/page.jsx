@@ -8,6 +8,10 @@ export const metadata = {
   description:
     "Explore Adesa Media's featured campaigns and adventures. See how our marketing, media, and PR strategies deliver measurable growth and engagement for leading brands.",
   metadataBase: new URL(siteConfig.url),
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   alternates: { canonical: `${siteConfig.url}/adventures` },
   openGraph: {
     title: "Case Studies & Adventures - Adesa Media",

@@ -21,6 +21,10 @@ export async function generateMetadata({ params }) {
       type: "profile",
       images: member.image ? [{ url: `${siteConfig.url}${member.image}` }] : [],
     },
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
+    },
     twitter: {
       card: "summary_large_image",
       title: `${member.name} – ${member.role}`,

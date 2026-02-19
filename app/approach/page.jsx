@@ -19,6 +19,10 @@ export const metadata = {
   alternates: {
     canonical: "/approach",
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Our Approach - Adesa Media",
     description:

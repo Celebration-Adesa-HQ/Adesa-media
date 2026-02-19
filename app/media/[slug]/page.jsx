@@ -49,6 +49,10 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: `https://adesamedia.com${post.link}`,
     },
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
+    },
     robots: {
       index: true,
       follow: true,
