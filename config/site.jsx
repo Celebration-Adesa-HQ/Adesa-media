@@ -10,7 +10,7 @@ export const siteConfig = {
 
   // SEO and Metadata
   seo: {
-    title: "Full Service Marketing Agency in Lagos, Nigeria | Adesa Media",
+    title: "Adesa Media",
     description:
       "Adesa Media is a full service marketing agency in Lagos, Nigeria. We deliver brand strategy, media buying, PR, digital marketing, and experiential campaigns built for measurable growth.",
 
