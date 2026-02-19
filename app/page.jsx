@@ -47,56 +47,8 @@ export const metadata = {
 };
 
 export default function Home() {
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "MarketingAgency",
-  "@id": `${siteConfig.url}/#organization`,
-  name: "Adesa Media",
-  url: siteConfig.url,
-  logo: `${siteConfig.url}/Adesa-media-logo-black.png`,
-  description:
-    "Full service marketing agency in Lagos, Nigeria delivering strategy, media, PR and digital campaigns.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Lagos",
-    addressRegion: "Lagos",
-    addressCountry: "NG",
-  },
-
-  areaServed: {
-    "@type": "Country",
-    name: "Nigeria",
-  },
-  sameAs: [
-    "https://www.linkedin.com/company/your-link",
-    "https://www.instagram.com/your-handle",
-    "https://twitter.com/your-handle",
-  ],
-};
-
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": `${siteConfig.url}#website`,
-  url: siteConfig.url,
-
-  name: "Adesa Media",
-  publisher: {
-    "@id": `${siteConfig.url}#organization`,
-  },
-};
-
 return (
-  <>
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-    />
+
     <HomePage />
-  </>
 );
 }
