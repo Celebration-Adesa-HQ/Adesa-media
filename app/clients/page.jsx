@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata = {
   title:
-    "Our Clients - Adesa Media | Full-Service Marketing Agency in Lagos, Nigeria",
+    "Our Clients - Adesa Media ",
   description:
     "Trusted by leading brands, Adesa Media delivers marketing, media, and PR solutions across Nigeria. See our client portfolio and success stories.",
   keywords: [
