@@ -101,11 +101,51 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <title key="title">{metadata.title.default}</title>
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content={metadata.keywords.join(", ")} />
         <meta name="application-name" content={metadata.applicationName} />
+        <meta name="referrer" content={metadata.referrer} />
+        <meta
+          name="format-detection"
+          content="email=no, address=no, telephone=no"
+        />
+        <link rel="icon" href={metadata.icons.icon} />
+        <link rel="apple-touch-icon" href={metadata.icons.apple} />
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta
+          property="og:description"
+          content={metadata.openGraph.description}
+        />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:site_name" content={metadata.openGraph.siteName} />
+        <meta property="og:locale" content={metadata.openGraph.locale} />
+        <meta property="og:type" content={metadata.openGraph.type} />
+        {metadata.openGraph.images.map((image, index) => (
+          <meta key={index} property="og:image" content={image.url} />
+        ))}
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
+        <meta
+          name="twitter:description"
+          content={metadata.twitter.description}
+        />
+        <meta name="twitter:creator" content={metadata.twitter.creator} />
+        {metadata.twitter.images.map((image, index) => (
+          <meta key={index} name="twitter:image" content={image} />
+        ))}
+        .
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+        <link rel="canonical" href={metadata.alternates.canonical} />
+        <sitemap href="/sitemap.xml" type="application/xml" />
+        <link rel="manifest" href="/site.webmanifest" />
+        
       </head>
       <body
         className={`${sora.variable} ${inter.variable} ${geistMono.variable} antialiased`}
@@ -144,12 +184,21 @@ export default function RootLayout({ children }) {
                 url: siteConfig.url,
                 logo: siteConfig.logo,
                 description: siteConfig.description,
-                sameAs: Object.values(siteConfig.socialMedia || {}).map((s) => s.href).filter(Boolean),
+                sameAs: Object.values(siteConfig.socialMedia || {})
+                  .map((s) => s.href)
+                  .filter(Boolean),
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: (siteConfig.contact?.address?.lines?.[0]) || "",
-                  addressLocality: (siteConfig.contact?.address?.lines?.[2] || "Lagos").split(",")[0].trim(),
-                  postalCode: (siteConfig.contact?.address?.lines?.[2] || "").split(",")[1]?.trim() || "",
+                  streetAddress: siteConfig.contact?.address?.lines?.[0] || "",
+                  addressLocality: (
+                    siteConfig.contact?.address?.lines?.[2] || "Lagos"
+                  )
+                    .split(",")[0]
+                    .trim(),
+                  postalCode:
+                    (siteConfig.contact?.address?.lines?.[2] || "")
+                      .split(",")[1]
+                      ?.trim() || "",
                   addressCountry: "NG",
                 },
                 contactPoint: [
@@ -161,7 +210,7 @@ export default function RootLayout({ children }) {
                   },
                 ],
               },
-            ])
+            ]),
           }}
         />
       </body>
