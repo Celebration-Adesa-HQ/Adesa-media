@@ -99,6 +99,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <title key="title">{metadata.title.default}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords.join(", ")} />
+        <meta name="application-name" content={metadata.applicationName} />
+      </head>
       <body
         className={`${sora.variable} ${inter.variable} ${geistMono.variable} antialiased`}
       >

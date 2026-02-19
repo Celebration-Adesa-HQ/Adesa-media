@@ -82,9 +82,9 @@ const HeroSection = memo(function HeroSection({
         {/* Content */}
         <main className="flex flex-1 items-center px-6 md:px-16 lg:px-24">
           <div className="max-w-3xl">
-            <p className="mb-4 text-xs tracking-[0.3em] uppercase text-cyan-300">
+            <h1 className="mb-4 text-xs tracking-[0.3em] uppercase text-cyan-300">
               {subheading || heroConfig.subheading}
-            </p>
+            </h1>
 
             <h1 className="text-4xl font-black leading-tight text-white md:text-6xl lg:text-7xl">
               {headline || heroConfig.headline}
