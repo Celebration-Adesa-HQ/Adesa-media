@@ -52,6 +52,10 @@ export const metadata = {
     address: false,
     telephone: false,
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: siteConfig.seo.openGraph.title,
     description: siteConfig.seo.openGraph.description,
