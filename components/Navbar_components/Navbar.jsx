@@ -39,7 +39,7 @@ export default function Navbar() {
         primaryRoutes: primary,
         secondaryRoutes: secondary,
         ctaRoute: cta,
-        allRoutes: [...primary, ...secondary, cta],
+        allRoutes: [...primary, ...secondary],
       };
     }, []);
 
@@ -159,7 +159,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-5">
               <Link
                 href={ctaRoute.href}
-                className="rounded-xl bg-brand-orange px-7 py-3 text-sm font-semibold text-brand-dark hover:bg-amber-500 transition-colors"
+                className="rounded-xl bg-brand-orange px-7 py-3 text-sm font-bold text-brand-dark hover:bg-amber-500 transition-colors"
               >
                 {ctaRoute.label}
               </Link>

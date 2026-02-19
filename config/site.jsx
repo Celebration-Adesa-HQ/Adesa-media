@@ -88,7 +88,7 @@ export const siteConfig = {
       { href: "/team", label: "Team" },
       { href: "/clients", label: "Clients" },
     ],
-    cta: { href: "/contact", label: "Partner with us" },
+    cta: { href: "/contact", label: "PARTNER WITH US" },
     navigationItems: [
       { label: "Home", href: "/" },
       { label: "About Us", href: "/about" },

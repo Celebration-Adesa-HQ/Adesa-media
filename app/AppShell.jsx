@@ -64,7 +64,23 @@ export default function AppShell({ children }) {
 
       <SloganSection />
       <TestimonialsSection />
-      <SubscribeCard buttonText="Subscribe on LinkedIn" className="px-44 py-28 flex flex-col align-center justify-center " />
+      <SubscribeCard
+        buttonText="Subscribe on LinkedIn"
+        className="
+    w-full
+    px-4
+    sm:px-8
+    lg:px-16
+    py-12
+    sm:py-16
+    lg:py-24
+    flex
+    flex-col
+    items-center
+    justify-center
+  "
+      />
+
       <Footer onNavClick={handleNavClick} />
 
       <BackToTop />

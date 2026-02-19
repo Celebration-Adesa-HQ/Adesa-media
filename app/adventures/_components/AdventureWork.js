@@ -121,7 +121,7 @@ export const AdventureWork = [
   },
   {
     id: 4,
-    title: "Creative Block – Youth Culture & Experiential Strategy",
+    title: "Creative Bloc – Youth Culture & Experiential Strategy",
     client: "Leadway Group",
     industry: "Financial Services",
     serviceProvided:

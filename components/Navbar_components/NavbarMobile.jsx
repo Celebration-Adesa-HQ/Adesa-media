@@ -63,7 +63,7 @@ export default function NavbarMobile({
           <Link
             href={cta.href}
             onClick={close}
-            className="w-full rounded-xl bg-brand-orange py-3 text-center font-semibold text-brand-dark hover:bg-amber-500 transition-colors"
+            className="w-full rounded-xl bg-brand-orange py-3 text-center font-bold text-brand-dark hover:bg-amber-500 transition-colors"
           >
             {cta.label}
           </Link>

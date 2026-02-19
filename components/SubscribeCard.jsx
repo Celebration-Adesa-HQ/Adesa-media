@@ -12,14 +12,53 @@ export default function SubscribeCard({
   icon = true,
   className = "",
 }) {
-    const { newsletter } = siteConfig.homepage.footer;
+  const { newsletter } = siteConfig.homepage.footer;
+
   return (
-    <div className={className}>
-      <h4 className="text-lg font-bold text-[#FFA205] mb-8 uppercase tracking-widest">
+    <div
+      className={`
+        w-full
+        max-w-md
+        sm:max-w-lg
+        lg:max-w-xl
+        mx-auto
+        px-4
+        sm:px-6
+        ${className}
+      `}
+    >
+      <h4
+        className="
+          text-base
+          sm:text-lg
+          lg:text-xl
+          font-bold
+          text-[#FFA205]
+          mb-4
+          sm:mb-6
+          uppercase
+          tracking-widest
+          text-center
+          sm:text-left
+        "
+      >
         {title || newsletter.title}
       </h4>
 
-      <p className="text-slate-400 mb-6">{description || newsletter.description}</p>
+      <p
+        className="
+          text-sm
+          sm:text-base
+          text-slate-400
+          mb-6
+          sm:mb-8
+          text-center
+          sm:text-left
+          leading-relaxed
+        "
+      >
+        {description || newsletter.description}
+      </p>
 
       <motion.a
         href={href || newsletter.url}
@@ -32,16 +71,17 @@ export default function SubscribeCard({
           bg-linear-to-r from-[#FFA205] to-[#FFC107]
           text-[#151E47]
           font-bold
-          py-4
+          py-3
+          sm:py-4
           rounded-xl
           hover:shadow-lg hover:shadow-orange-500/20
           transition-all duration-300
           flex items-center justify-center gap-2
-          cursor-pointer
+          text-sm
+          sm:text-base
         "
       >
         {buttonText}
-
         {icon && <Send size={18} />}
       </motion.a>
     </div>
