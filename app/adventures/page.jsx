@@ -7,6 +7,8 @@ export const metadata = {
   title: "Case Studies & Adventures - Full Service Marketing Agency",
   description:
     "Explore Adesa Media's featured campaigns and adventures. See how our marketing, media, and PR strategies deliver measurable growth and engagement for leading brands.",
+  metadataBase: new URL(siteConfig.url),
+  alternates: { canonical: `${siteConfig.url}/adventures` },
   openGraph: {
     title: "Case Studies & Adventures - Adesa Media",
     description:

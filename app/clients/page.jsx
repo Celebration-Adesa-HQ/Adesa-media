@@ -2,7 +2,8 @@ import ClientsSection from "@/components/Sections/ClientsSection";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title: "Our Clients - Adesa Media | Full-Service Marketing Agency in Lagos, Nigeria",
+  title:
+    "Our Clients - Adesa Media | Full-Service Marketing Agency in Lagos, Nigeria",
   description:
     "Trusted by leading brands, Adesa Media delivers marketing, media, and PR solutions across Nigeria. See our client portfolio and success stories.",
   keywords: [
@@ -36,6 +37,10 @@ export const metadata = {
       "Trusted by leading brands, Adesa Media delivers marketing, media, and PR solutions across Nigeria. See our client portfolio and success stories.",
     images: [`${siteConfig.logo}`],
     site: "@adesahq",
+  },
+  metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: `${siteConfig.url}/clients`,
   },
 };
 

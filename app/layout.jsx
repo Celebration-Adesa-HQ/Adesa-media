@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import AppShell from "./AppShell";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { siteConfig } from "@/config/site";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -24,13 +25,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://adesamedia.com"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Full Service Marketing Agency in Lagos, Nigeria | Adesa Media",
+    default: siteConfig.seo.title,
     template: "%s | Adesa Media",
   },
-  description:
-    "Adesa Media is a full service marketing agency in Lagos, Nigeria. We specialize in brand strategy, media buying, PR, digital marketing, OOH advertising, and content production for growth-driven brands.",
+  description: siteConfig.seo.description,
   applicationName: "Adesa Media",
   referrer: "origin-when-cross-origin",
   keywords: [
@@ -53,14 +53,13 @@ export const metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Full Service Marketing Agency in Lagos, Nigeria | Adesa Media",
-    description:
-      "Brand strategy, media buying, PR, digital marketing, OOH advertising, and content production tailored for Nigerian and West African brands.",
-    url: "https://adesamedia.com",
-    siteName: "Adesa Media",
+    title: siteConfig.seo.openGraph.title,
+    description: siteConfig.seo.openGraph.description,
+    url: siteConfig.url,
+    siteName: siteConfig.title,
     images: [
       {
-        url: "/og-main.jpg",
+        url: `${siteConfig.url}/Adesa-media-logo-black.png`,
         width: 1200,
         height: 630,
         alt: "Adesa Media – Full Service Marketing Agency in Lagos",
@@ -71,11 +70,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Full Service Marketing Agency in Lagos, Nigeria | Adesa Media",
-    description:
-      "Strategic branding, media buying, PR, digital campaigns, and OOH advertising for ambitious brands.",
-    creator: "@adesahq",
-    images: ["https://adesamedia.com/og-main.jpg"],
+    title: siteConfig.seo.twitter.title,
+    description: siteConfig.seo.twitter.description,
+    creator: siteConfig.seo.twitter.creator,
+    images: [siteConfig.logo],
   },
   robots: {
     index: true,
@@ -114,24 +112,44 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Adesa Media",
-              url: "https://adesamedia.com",
-              logo: "https://adesamedia.com/logo.png",
-              description: "Full service marketing agency in Lagos, Nigeria.",
-              sameAs: [
-                "https://twitter.com/adesahq",
-                "https://instagram.com/adesamedia",
-                "https://linkedin.com/company/adesamedia",
-              ],
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Lagos",
-                addressCountry: "NG",
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                url: siteConfig.url,
+                name: siteConfig.title,
+                description: siteConfig.description,
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target: `${siteConfig.url}/?s={search_term_string}`,
+                  "query-input": "required name=search_term_string",
+                },
               },
-            }),
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: siteConfig.title,
+                url: siteConfig.url,
+                logo: siteConfig.logo,
+                description: siteConfig.description,
+                sameAs: Object.values(siteConfig.socialMedia || {}).map((s) => s.href).filter(Boolean),
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: (siteConfig.contact?.address?.lines?.[0]) || "",
+                  addressLocality: (siteConfig.contact?.address?.lines?.[2] || "Lagos").split(",")[0].trim(),
+                  postalCode: (siteConfig.contact?.address?.lines?.[2] || "").split(",")[1]?.trim() || "",
+                  addressCountry: "NG",
+                },
+                contactPoint: [
+                  {
+                    "@type": "ContactPoint",
+                    telephone: siteConfig.contact?.phone?.value || "",
+                    contactType: "customer service",
+                    email: siteConfig.contact?.email?.value || "",
+                  },
+                ],
+              },
+            ])
           }}
         />
       </body>

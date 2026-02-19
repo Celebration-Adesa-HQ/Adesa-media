@@ -7,6 +7,7 @@ export const metadata = {
   title: "Team - Adesa Media | Full-Service Marketing Agency",
   description:
     "Meet the leadership and experts at Adesa Media. Senior team driving strategy, creative, and media execution for brands in Lagos and Nigeria.",
+  metadataBase: new URL(siteConfig.url),
   openGraph: {
     title: "Team - Adesa Media",
     description:

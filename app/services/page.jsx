@@ -16,6 +16,7 @@ export const metadata = {
   alternates: {
     canonical: `${siteConfig.url}/services`,
   },
+  metadataBase: new URL(siteConfig.url),
   openGraph: {
     title: "Marketing & Branding Services | Adesa Media",
     description:
