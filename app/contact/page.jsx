@@ -2,7 +2,7 @@ import ContactSection from "@/components/Sections/ContactSection";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title: "Contact Adesa Media - Full-Service Marketing Agency Lagos",
+  title: "Contact Us - Full-Service Marketing Agency",
   description:
     "Partner with Adesa Media today. Full-service marketing, media, PR, and digital solutions for brands in Lagos, Nigeria.",
   keywords: [
