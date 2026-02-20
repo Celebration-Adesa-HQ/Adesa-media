@@ -14,38 +14,15 @@ export const metadata = {
     "PR Agency Lagos",
     "Digital Marketing Agency Nigeria",
   ],
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
   alternates: {
-    canonical: `${siteConfig.url}/about`,
+    canonical: "https://www.adesamedia.com/about",
   },
-  openGraph: {
-    title: "About Adesa Media - Full-Service Marketing Agency in Lagos",
-    description:
-      "Learn about Adesa Media, a leading full-service marketing agency in Lagos, Nigeria. Discover our mission, vision, core values, and why brands trust us.",
-    url: `${siteConfig.url}/about`,
-    siteName: siteConfig.title,
-    type: "website",
-    images: [
-      {
-        url: siteConfig.logo,
-        width: 800,
-        height: 600,
-        alt: "Adesa Media Logo",
-      },
-    ],
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Adesa Media - Full-Service Marketing Agency in Lagos",
-    description:
-      "Learn about Adesa Media, a leading full-service marketing agency in Lagos, Nigeria. Discover our mission, vision, core values, and why brands trust us.",
-    images: [siteConfig.logo],
-    site: "@adesahq",
-  },
-  metadataBase: new URL(siteConfig.url),
   icons: {
     icon: siteConfig.favicon,
     apple: siteConfig.favicon,
@@ -54,8 +31,10 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main>
-      <h1 className="sr-only">About Adesa Media</h1>
+    <main role="main">
+      <h1 className="sr-only">
+        About Adesa Media Marketing Agency in Lagos, Nigeria
+      </h1>
       <MissionAndVisionSection />
       <OurCoreValue />
       <WhyChooseUsSection />

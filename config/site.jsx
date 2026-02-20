@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "Adesa Media - Full-Service Marketing Agency",
   description:
     "Adesa Media is a leading full-service marketing agency that empowers brands with media, marketing, and PR systems built for growth, visibility, and long-term relevance.",
-  url: "https://adesamedia.com",
+  url: "https://www.adesamedia.com",
   defaultLanguage: "en",
   logo: "https://adesamedia.com/Adesa-media-logo-black.png",
   favicon: "@/app/favicon.ico",
