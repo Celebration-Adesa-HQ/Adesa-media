@@ -30,8 +30,8 @@ export const metadata = {
     },
   },
   icons: {
-    icon: siteConfig.favicon,
-    apple: siteConfig.favicon,
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 

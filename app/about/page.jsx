@@ -1,10 +1,9 @@
 import MissionAndVisionSection from "@/components/Sections/MissionAndVisionSection";
 import OurCoreValue from "@/components/Sections/OurCoreValue";
 import WhyChooseUsSection from "@/components/Sections/WhyChooseUsSection";
-import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title: "About Adesa Media - Full-Service Marketing Agency in Lagos",
+  title: "About Us - Full-Service Marketing Agency",
   description:
     "Learn about Adesa Media, a leading full-service marketing agency in Lagos, Nigeria. Discover our mission, vision, core values, and why brands trust us.",
   keywords: [
@@ -18,8 +17,8 @@ export const metadata = {
     canonical: "https://www.adesamedia.com/about",
   },
   icons: {
-    icon: siteConfig.favicon,
-    apple: siteConfig.favicon,
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   robots: {
     index: true,

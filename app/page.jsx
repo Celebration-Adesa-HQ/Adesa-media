@@ -1,7 +1,7 @@
 import HomePage from "@/components/HomePage";
 
 export const metadata = {
-  title: "Adesa Media | Full Service Marketing Agency in Lagos, Nigeria",
+  title: "Adesa Media - Full-Service Marketing Agency",
   description:
     "Adesa Media is a full service marketing agency in Lagos, Nigeria. We provide brand strategy, media buying, PR, digital marketing, and experiential campaigns built for measurable growth.",
   alternates: {
@@ -13,7 +13,9 @@ export const metadata = {
 export default function Home() {
 return (
   <main role="main">
-    <h1 className="sr-only">Full Service Marketing Agency in Lagos, Nigeria</h1>
+    <h1 className="sr-only">
+      Adesa Media - Full Service Marketing Agency in Lagos, Nigeria
+    </h1>
     <HomePage />
   </main>
 );

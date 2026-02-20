@@ -1,8 +1,7 @@
 import ClientsSection from "@/components/Sections/ClientsSection";
-import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title: "Our Clients | Adesa Media Marketing Agency in Lagos",
+  title: "Our Clients - Full-Service Marketing Agency",
   description:
     "See the brands that trust Adesa Media, a marketing agency in Lagos, Nigeria. Explore our client portfolio, campaigns, and measurable results.",
   keywords: [
@@ -13,11 +12,11 @@ export const metadata = {
     "Digital Marketing Portfolio Lagos",
   ],
   alternates: {
-    canonical: `https://www.adesamedia.com/clients`,
+    canonical: "https://www.adesamedia.com/clients",
   },
   icons: {
-    icon: siteConfig.favicon,
-    apple: siteConfig.favicon,
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   robots: {
     index: true,
