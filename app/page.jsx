@@ -5,7 +5,7 @@ export const metadata = {
   description:
     "Adesa Media is a full service marketing agency in Lagos, Nigeria. We provide brand strategy, media buying, PR, digital marketing, and experiential campaigns built for measurable growth.",
   alternates: {
-    canonical: "https://adesamedia.com/",
+    canonical: "https://www.adesamedia.com/",
   },
 };
 
