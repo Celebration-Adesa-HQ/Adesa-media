@@ -90,9 +90,6 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "https://adesamedia.com",
-  },
 };
 
 
