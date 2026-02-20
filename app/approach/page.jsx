@@ -15,38 +15,8 @@ export const metadata = {
     "Digital Marketing Agency",
     "Full-Service Marketing Agency",
   ],
-  metadataBase: new URL(siteConfig.url),
   alternates: {
-    canonical: "/approach",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  openGraph: {
-    title: "Our Approach - Adesa Media",
-    description:
-      "Learn how Adesa Media executes marketing campaigns with strategy, creativity, and measurable impact.",
-    url: `${siteConfig.url}/approach`,
-    siteName: siteConfig.title,
-    images: [
-      {
-        url: siteConfig.logo,
-        width: 1200,
-        height: 630,
-        alt: "Adesa Media Approach Overview",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Our Approach - Adesa Media",
-    description:
-      "Discover Adesa Media's approach: co-creation, storytelling, empathy, and data-driven campaigns.",
-    images: [`${siteConfig.logo}`],
-    site: "@adesahq",
+    canonical: "https://www.adesamedia.com/approach",
   },
   icons: {
     icon: siteConfig.favicon,
@@ -58,7 +28,15 @@ export default function ApproachPage() {
   const { approach } = siteConfig;
 
   return (
-    <div className="min-h-screen bg-brand-light dark:bg-brand-blue text-brand-dark dark:text-white font-body">
+    <main
+      className="min-h-screen bg-brand-light dark:bg-brand-blue text-brand-dark dark:text-white font-body"
+      role="main"
+    >
+      <h1 className="sr-only">
+        Adesa Media's Approach to Marketing and PR in Lagos, Nigeria
+      </h1>
+
+      {/* Heading */}
       <SectionHeading
         eyebrow={approach.heading.eyebrow}
         title={approach.heading.title}
@@ -229,6 +207,6 @@ export default function ApproachPage() {
           </div>
         </Container>
       </section>
-    </div>
+    </main>
   );
 }

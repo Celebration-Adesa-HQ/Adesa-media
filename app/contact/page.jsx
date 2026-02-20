@@ -13,43 +13,13 @@ export const metadata = {
     "Media Buying Agency Nigeria",
   ],
   alternates: {
-    canonical: `${siteConfig.url}/contact`,
+    canonical: "https://www.adesamedia.com/contact",
   },
-  openGraph: {
-    title: "Contact Adesa Media - Full-Service Marketing Agency Lagos",
-    description:
-      "Partner with Adesa Media today. Full-service marketing, media, PR, and digital solutions for brands in Lagos, Nigeria.",
-    url: `${siteConfig.url}/contact`,
-    siteName: siteConfig.title,
-    images: [
-      {
-        url: siteConfig.logo,
-        width: 800,
-        height: 600,
-        alt: "Adesa Media Logo",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact Adesa Media - Full-Service Marketing Agency Lagos",
-    description:
-      "Partner with Adesa Media today. Full-service marketing, media, PR, and digital solutions for brands in Lagos, Nigeria.",
-    creator: siteConfig.seo.twitter.creator,
-    images: [siteConfig.logo],
-  },
-  metadataBase: new URL(siteConfig.url),
 };
 
 export default function ContactPage() {
   return (
-    <main>
+    <main  role="main">
       <h1 className="sr-only">Contact Adesa Media</h1>
       <ContactSection variant="blog" />
       <script
