@@ -17,15 +17,20 @@ export const metadata = {
   alternates: {
     canonical: "https://www.adesamedia.com/about",
   },
-  robots: {
-    index: true,
-    follow: true,
-    "max-image-preview": "large",
-    "max-snippet": -1,
-  },
   icons: {
     icon: siteConfig.favicon,
     apple: siteConfig.favicon,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

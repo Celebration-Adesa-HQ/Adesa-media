@@ -2,56 +2,43 @@ import ClientsSection from "@/components/Sections/ClientsSection";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title:
-    "Our Clients - Adesa Media | Full-Service Marketing Agency in Lagos, Nigeria",
+  title: "Our Clients | Adesa Media Marketing Agency in Lagos",
   description:
-    "Trusted by leading brands, Adesa Media delivers marketing, media, and PR solutions across Nigeria. See our client portfolio and success stories.",
+    "See the brands that trust Adesa Media, a marketing agency in Lagos, Nigeria. Explore our client portfolio, campaigns, and measurable results.",
   keywords: [
-    "Marketing Agency Lagos",
-    "Full Service Marketing Agency Nigeria",
-    "PR Agency Nigeria",
-    "Media Buying Agency Nigeria",
-    "Brand Strategy Agency Lagos",
-    "Digital Marketing Agency Nigeria",
+    "Adesa Media Clients",
+    "Marketing Agency Clients Lagos",
+    "Brand Campaign Portfolio Nigeria",
+    "PR Campaigns Nigeria",
+    "Digital Marketing Portfolio Lagos",
   ],
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  openGraph: {
-    title: "Our Clients - Adesa Media",
-    description:
-      "Trusted by leading brands, Adesa Media delivers marketing, media, and PR solutions across Nigeria. See our client portfolio and success stories.",
-    url: `${siteConfig.url}/clients`,
-    siteName: siteConfig.title,
-    type: "website",
-    images: [
-      {
-        url: siteConfig.logo,
-        width: 1200,
-        height: 630,
-        alt: "Adesa Media Clients Portfolio",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Our Clients - Adesa Media",
-    description:
-      "Trusted by leading brands, Adesa Media delivers marketing, media, and PR solutions across Nigeria. See our client portfolio and success stories.",
-    images: [`${siteConfig.logo}`],
-    site: siteConfig.seo.twitter.creator,
-  },
-  metadataBase: new URL(siteConfig.url),
   alternates: {
-    canonical: `${siteConfig.url}/clients`,
+    canonical: `https://www.adesamedia.com/clients`,
+  },
+  icons: {
+    icon: siteConfig.favicon,
+    apple: siteConfig.favicon,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
 export default function ClientsPage() {
-  return (
-    <main className="relative">
-      <ClientsSection showFullClient />
-    </main>
-  );
+return (
+  <main role="main" className="relative">
+    <h1 className="sr-only">
+      Marketing Agency Client Portfolio in Lagos, Nigeria
+    </h1>
+    <ClientsSection showFullClient />
+  </main>
+);
 }
