@@ -27,7 +27,7 @@ export const metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/Adesa-media-logo-black.png",
     apple: "/apple-touch-icon.png",
   },
 };

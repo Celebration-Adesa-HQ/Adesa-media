@@ -17,7 +17,7 @@ export const metadata = {
     canonical: "https://www.adesamedia.com/about",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/Adesa-media-logo-black.png",
     apple: "/apple-touch-icon.png",
   },
   robots: {
