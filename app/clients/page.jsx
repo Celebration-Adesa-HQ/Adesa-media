@@ -13,6 +13,7 @@ export const metadata = {
   ],
   alternates: {
     canonical: "https://www.adesamedia.com/clients",
+    
   },
   icons: {
     icon: "/Adesa-media-logo-black.png",

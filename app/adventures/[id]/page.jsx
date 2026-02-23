@@ -15,37 +15,45 @@ export async function generateMetadata({ params }) {
     ? rawImage
     : `${siteConfig.url}${rawImage.startsWith("/") ? "" : "/"}${rawImage}`;
 
-  return {
-    title: `${adventure.title} | Adesa Media Adventures`,
-    description: adventure.description,
+return {
+  title: `${adventure.title} | Adesa Media Adventures`,
+  description: adventure.description,
+  alternates: {
     canonical: `${siteConfig.url}/adventures/${adventure.slug}`,
-    openGraph: {
-      title: adventure.title,
-      description: adventure.description,
-      url: `${siteConfig.url}/adventures/${adventure.slug}`,
-      siteName: siteConfig.title,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: adventure.title,
-        },
-      ],
-      type: "website",
+  },
+  openGraph: {
+    title: adventure.title,
+    description: adventure.description,
+    url: `${siteConfig.url}/adventures/${adventure.slug}`,
+    siteName: siteConfig.title,
+    images: [
+      {
+        url: imageUrl,
+        width: 1200,
+        height: 630,
+        alt: adventure.title,
+      },
+    ],
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: adventure.title,
+    description: adventure.description,
+    images: [imageUrl],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
-    icons: {
-      icon: "/favicon.ico",
-      apple: "/apple-touch-icon.png",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: adventure.title,
-      description: adventure.description,
-      images: [imageUrl],
-      site: "@adesahq",
-    },
-  };
+  },
+};
 }
 
 export default async function AdventurePage({ params }) {

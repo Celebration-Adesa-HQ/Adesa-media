@@ -7,12 +7,7 @@ export const metadata = {
   title: "Case Studies & Adventures - Full Service Marketing Agency",
   description:
     "Explore Adesa Media's featured campaigns and adventures. See how our marketing, media, and PR strategies deliver measurable growth and engagement for leading brands.",
-  metadataBase: new URL(siteConfig.url),
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  alternates: { canonical: `${siteConfig.url}/adventures` },
+  alternates: { canonical: "https://www.adesamedia.com/adventures" },
   openGraph: {
     title: "Case Studies & Adventures - Adesa Media",
     description:
@@ -28,12 +23,20 @@ export const metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Case Studies & Adventures - Adesa Media",
-    description:
-      "Explore how Adesa Media drives brand growth with marketing, media, and PR campaigns.",
-    images: [`${siteConfig.url}/hot-air-balloons-6144x4096-12393.jpg`],
+  icons: {
+    icon: "/Adesa-media-logo-black.png",
+    apple: "/apple-touch-icon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
