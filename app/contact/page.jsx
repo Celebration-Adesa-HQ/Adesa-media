@@ -11,6 +11,12 @@ export const metadata = {
     "Digital Marketing Agency Lagos",
     "PR Agency Lagos",
     "Media Buying Agency Nigeria",
+    "Adesa media",
+    "adesamedia.com",
+    "adesa",
+    "adesa media.com",
+    "adesa media contact",
+    "contact",
   ],
   alternates: {
     canonical: "https://www.adesamedia.com/contact",

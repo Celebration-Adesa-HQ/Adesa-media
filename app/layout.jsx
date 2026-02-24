@@ -43,6 +43,9 @@ export const metadata = {
     "OOH advertising Nigeria",
     "brand strategy agency Lagos",
     "Adesa Media",
+    "adesamedia.com",
+    "adesa",
+    "adesa media.com"
   ],
   authors: [{ name: "Adesa Media" }],
   creator: "Adesa Media",
