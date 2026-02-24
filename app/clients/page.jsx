@@ -28,10 +28,6 @@ export const metadata = {
   alternates: {
     canonical: "https://www.adesamedia.com/clients",
   },
-  icons: {
-    icon: "/Adesa-media-logo-black.png",
-    apple: "/apple-touch-icon.png",
-  },
   robots: {
     index: true,
     follow: true,

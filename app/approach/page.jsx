@@ -43,10 +43,6 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/Adesa-media-logo-black.png",
-    apple: "/apple-touch-icon.png",
-  },
 };
 
 export default function ApproachPage() {

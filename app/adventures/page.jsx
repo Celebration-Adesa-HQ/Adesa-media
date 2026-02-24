@@ -45,10 +45,6 @@ export const metadata = {
       },
     ],
   },
-  icons: {
-    icon: "/Adesa-media-logo-black.png",
-    apple: "/apple-touch-icon.png",
-  },
   robots: {
     index: true,
     follow: true,
