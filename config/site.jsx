@@ -5,7 +5,7 @@ export const siteConfig = {
     "Adesa Media is a leading full-service marketing agency that empowers brands with media, marketing, and PR systems built for growth, visibility, and long-term relevance.",
   url: "https://www.adesamedia.com",
   defaultLanguage: "en",
-  logo: "https://adesamedia.com/Adesa-media-logo-black.png",
+  logo: "/Adesa-media-logo-black.png",
   favicon: "@/app/favicon.ico",
 
   // SEO and Metadata
