@@ -6,6 +6,7 @@ import AppShell from "./AppShell";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { siteConfig } from "@/config/site";
+import { constructMetadata } from "@/lib/seo";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -24,72 +25,7 @@ const geistMono = Geist_Mono({
   variable: "--font-mono",
 });
 
-export const metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.seo.title,
-    template: "%s | Adesa Media",
-  },
-  description: siteConfig.seo.description,
-  applicationName: "Adesa Media",
-  referrer: "origin-when-cross-origin",
-  keywords: [
-    "marketing agency in Lagos",
-    "marketing agency Nigeria",
-    "full service marketing agency",
-    "media buying agency Nigeria",
-    "PR agency Lagos",
-    "digital marketing agency Nigeria",
-    "OOH advertising Nigeria",
-    "brand strategy agency Lagos",
-    "Adesa Media",
-    "adesamedia.com",
-    "adesa",
-    "adesa media.com"
-  ],
-  authors: [{ name: "Adesa Media" }],
-  creator: "Adesa Media",
-  publisher: "Adesa Media",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  openGraph: {
-    title: siteConfig.seo.openGraph.title,
-    description: siteConfig.seo.openGraph.description,
-    url: siteConfig.url,
-    siteName: siteConfig.title,
-    images: [
-      {
-        url: `${siteConfig.url}/Adesa-media-logo-black.png`,
-        width: 1200,
-        height: 630,
-        alt: "Adesa Media – Full Service Marketing Agency in Lagos",
-      },
-    ],
-    locale: "en_NG",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.seo.twitter.title,
-    description: siteConfig.seo.twitter.description,
-    creator: siteConfig.seo.twitter.creator,
-    images: [siteConfig.logo],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+export const metadata = constructMetadata();
 
 
 export default function RootLayout({ children }) {

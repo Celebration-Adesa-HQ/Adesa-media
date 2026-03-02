@@ -1,44 +1,20 @@
 import ContactSection from "@/components/Sections/ContactSection";
 import { siteConfig } from "@/config/site";
+import { constructMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: "Contact Us - Full-Service Marketing Agency",
   description:
     "Partner with Adesa Media today. Full-service marketing, media, PR, and digital solutions for brands in Lagos, Nigeria.",
-  keywords: [
-    "Marketing Agency Lagos",
-    "Full Service Marketing Agency Nigeria",
-    "Digital Marketing Agency Lagos",
-    "PR Agency Lagos",
-    "Media Buying Agency Nigeria",
-    "Adesa media",
-    "adesamedia.com",
-    "adesa",
-    "adesa media.com",
-    "adesa media contact",
-    "contact",
-  ],
-  alternates: {
-    canonical: "https://www.adesamedia.com/contact",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
-    <main  role="main">
+    <main role="main">
       <h1 className="sr-only">Contact Adesa Media</h1>
       <ContactSection variant="blog" />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

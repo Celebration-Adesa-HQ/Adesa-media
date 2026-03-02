@@ -2,48 +2,14 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { siteConfig } from "@/config/site";
 import ChevronSteps from "../media/_components/ChevronSteps";
 import { Container } from "@/components/Container";
+import { constructMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: "Our Approach - Full-Service Marketing Agency",
   description:
     "Discover Adesa Media's proven approach: co-creation, creative storytelling, empathy, and data-driven strategies for measurable growth and impactful campaigns.",
-  keywords: [
-    "Marketing Agency Lagos",
-    "PR Agency Nigeria",
-    "Media Buying Agency",
-    "Brand Strategy Agency",
-    "Digital Marketing Agency",
-    "Full-Service Marketing Agency",
-    "marketing agency in Lagos",
-    "marketing agency Nigeria",
-    "full service marketing agency",
-    "media buying agency Nigeria",
-    "PR agency Lagos",
-    "digital marketing agency Nigeria",
-    "OOH advertising Nigeria",
-    "brand strategy agency Lagos",
-    "Adesa Media",
-    "adesamedia.com",
-    "adesa",
-    "adesa media.com",
-    "adesa media approach",
-    "approach",
-  ],
-  alternates: {
-    canonical: "https://www.adesamedia.com/approach",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+  path: "/approach",
+});
 
 export default function ApproachPage() {
   const { approach } = siteConfig;
@@ -57,7 +23,6 @@ export default function ApproachPage() {
         Adesa Media's Approach to Marketing and PR in Lagos, Nigeria
       </h1>
 
-      {/* Heading */}
       <SectionHeading
         eyebrow={approach.heading.eyebrow}
         title={approach.heading.title}
@@ -65,7 +30,6 @@ export default function ApproachPage() {
         showFullClient
       />
 
-      {/* Approach */}
       <div className="min-h-screen flex items-center justify-center bg-brand-orange p-6 md:p-12 relative overflow-hidden">
         <div className="relative z-10 max-w-6xl w-full mx-auto">
           <div className="space-y-8">
@@ -84,17 +48,14 @@ export default function ApproachPage() {
         </div>
       </div>
 
-      {/* Section */}
       <section className="min-h-screen flex items-center bg-brand-orange justify-center p-6 md:p-12">
         <div className="max-w-6xl w-full mx-auto">
-          {/* Title */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-extrabold text-primary tracking-tight">
               {approach.sectionTitle}
             </h1>
           </div>
 
-          {/* Center Badge Mobile */}
           <div className="lg:hidden flex my-4 w-full justify-center">
             <div className="w-24 h-24 bg-background-light dark:bg-background-dark rounded-full flex items-center justify-center text-center shadow-md border-2 border-primary">
               <span className="text-primary font-extrabold text-xs leading-tight whitespace-pre-line">
@@ -104,7 +65,6 @@ export default function ApproachPage() {
           </div>
 
           <div className="relative">
-            {/* Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 bg-black/10 dark:bg-white/10 p-px">
               {approach.steps.map((step) => (
                 <div
@@ -126,7 +86,6 @@ export default function ApproachPage() {
               ))}
             </div>
 
-            {/* Center Badge Desktop */}
             <div className="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 bg-brand-blue dark:bg-background-dark rounded-full items-center justify-center text-center shadow-lg border-4 border-primary z-10">
               <span className="text-primary font-extrabold text-lg md:text-xl leading-tight px-4 whitespace-pre-line">
                 {approach.centerBadge}
@@ -136,7 +95,6 @@ export default function ApproachPage() {
         </div>
       </section>
 
-      {/* Tools */}
       <section className="border-b border-slate-200 bg-slate-50">
         <Container className="py-16">
           <div className="mb-20">
@@ -156,7 +114,6 @@ export default function ApproachPage() {
         </Container>
       </section>
 
-      {/* Measurement */}
       <section className="border-b border-slate-200 bg-white">
         <Container className="py-16">
           <SectionHeading
@@ -165,7 +122,6 @@ export default function ApproachPage() {
             description={approach.measurement.heading.description}
           />
 
-          {/* Table */}
           <div className="mt-20 overflow-hidden rounded-2xl border border-slate-200">
             <div className="grid grid-cols-3 bg-slate-50 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-slate-600">
               <div>Medium</div>
@@ -189,7 +145,6 @@ export default function ApproachPage() {
             </div>
           </div>
 
-          {/* OOH Codes */}
           <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-8">
             <div className="text-lg font-semibold text-slate-950">
               OOH code system
@@ -207,7 +162,6 @@ export default function ApproachPage() {
         </Container>
       </section>
 
-      {/* PR Toolkit */}
       <section className="bg-white">
         <Container className="py-16">
           <SectionHeading
