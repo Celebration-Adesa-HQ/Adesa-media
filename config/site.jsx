@@ -1,4 +1,5 @@
 export const siteConfig = {
+  // seo
   name: "ADESA MEDIA",
   description:
     "ADESA MEDIA is a full service marketing agency in Lagos, Nigeria. We deliver brand strategy, media buying, PR, digital marketing, and experiential campaigns built for measurable growth.",
@@ -7,84 +8,6 @@ export const siteConfig = {
   links: {
     twitter: "https://twitter.com/adesamedia",
     linkedin: "https://linkedin.com/company/adesa-media",
-  },
-  // Global site settings
-  title: "Adesa Media - Full-Service Marketing Agency",
-  description:
-    "Adesa Media is a leading full-service marketing agency that empowers brands with media, marketing, and PR systems built for growth, visibility, and long-term relevance.",
-  url: "https://adesamedia.com",
-  defaultLanguage: "en",
-  logo: "/Adesa-media-logo-black.png",
-  favicon: "@/app/favicon.ico",
-
-  // SEO and Metadata
-  seo: {
-    title: "Adesa Media - Full-Service Marketing Agency in Lagos, Nigeria",
-    description:
-      "Adesa Media is a full service marketing agency in Lagos, Nigeria. We deliver brand strategy, media buying, PR, digital marketing, and experiential campaigns built for measurable growth.",
-
-    keywords: [
-      "marketing agency in Lagos",
-      "marketing agency Nigeria",
-      "full service marketing agency",
-      "media buying agency Nigeria",
-      "PR agency Lagos",
-      "digital marketing agency Nigeria",
-      "OOH advertising Nigeria",
-      "brand strategy agency Lagos",
-      "Adesa Media",
-      "adesamedia.com",
-      "adesa",
-      "adesa media.com",
-      "adesa media",
-    ],
-    authors: [{ name: "Adesa Media" }],
-    creator: "Adesa Media",
-    publisher: "Adesa Media",
-    formatDetection: {
-      email: false,
-      address: false,
-      telephone: false,
-    },
-    openGraph: {
-      title: "Full Service Marketing Agency in Lagos, Nigeria | Adesa Media",
-      description:
-        "Brand strategy, media buying, PR, digital marketing, OOH advertising, and content production tailored for Nigerian and West African brands.",
-      url: "https://adesamedia.com",
-      siteName: "Adesa Media",
-      images: [
-        {
-          url: "/Adesa-media-logo-black.png",
-          width: 1200,
-          height: 630,
-          alt: "Adesa Media – Full Service Marketing Agency in Lagos",
-        },
-      ],
-      locale: "en_NG",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Full Service Marketing Agency in Lagos, Nigeria | Adesa Media",
-      description:
-        "Strategic branding, media buying, PR, digital campaigns, and OOH advertising for ambitious brands.",
-      creator: "@adesahq",
-      images: ["/Adesa-media-logo-black.png"],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
-    },
-    alternates: {
-      canonical: "https://adesamedia.com",
-    },
   },
 
   // Navigation links
