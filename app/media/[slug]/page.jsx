@@ -1,63 +1,29 @@
 import { allBlogPosts } from "@/components/Blog_components/blogPosts";
 import BlogPostPage from "@/components/BlogPostPage";
+import { constructMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
+  const { slug } = params;
   const post = allBlogPosts.find((p) => p.slug === slug);
 
   if (!post) {
-    return {
-      title: "Post Not Found | Adesa Media",
-      robots: { index: false, follow: false },
-    };
+    return constructMetadata({
+      title: "Post Not Found",
+      description: "The requested article does not exist.",
+      path: `/blog/${slug}`,
+      noIndex: true,
+    });
   }
 
-  return {
-    title: `${post.title}`,
+  return constructMetadata({
+    title: post.title,
     description: post.excerpt,
-    keywords: [
-      post.category,
-      "SEO",
-      "content strategy",
-      "digital marketing",
-      "Adesa Media",
-    ],
-    authors: [{ name: post.author.name }],
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      url: `https://adesamedia.com${post.link}`,
-      siteName: "Adesa Media",
-      images: [
-        {
-          url: post.image,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
-      type: "article",
-      publishedTime: new Date(post.date).toISOString(),
-      authors: [post.author.name],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
-      images: [post.image],
-    },
-    alternates: {
-      canonical: `https://adesamedia.com${post.link}`,
-    },
-    icons: {
-      icon: "/favicon.ico",
-      apple: "/apple-touch-icon.png",
-    },
-    robots: {
-      index: true,
-      follow: true,
-    },
-  };
+    path: post.link,
+    type: "article",
+    image: post.image,
+    publishedTime: new Date(post.date).toISOString(),
+    authors: [post.author.name],
+  });
 }
 
 function getRelatedPosts(currentPost, allPosts, limit = 3) {
@@ -97,8 +63,7 @@ function getPaginationLinks(currentSlug, allPosts) {
 }
 
 export default async function BlogDetailPage({ params }) {
-  const { slug } = await params;
-
+  const { slug } = params;
   const post = allBlogPosts.find((p) => p.slug === slug);
 
   if (!post) {

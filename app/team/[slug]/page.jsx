@@ -1,42 +1,38 @@
 import { notFound } from "next/navigation";
 import TeamProfile from "./_components/TemProfile";
 import { siteConfig } from "@/config/site";
+import { constructMetadata } from "@/lib/seo";
 
-// Generate page-level metadata
-export async function generateMetadata({ params }) {
-  const { slug } = await params;
+export async function generateMetadata({
+  params,
+}) {
+  const { slug } = params;
   const member = siteConfig.team.find((m) => m.slug === slug);
 
   if (!member) return {};
 
-  return {
-    title: `${member.name} – ${member.role} | ${siteConfig.title}`,
+  return constructMetadata({
+    title: `${member.name} – ${member.role}`,
     description: member.bio,
-    alternates: { canonical: `${siteConfig.url}/team/${member.slug}` },
+    path: `/team/${member.slug}`,
     openGraph: {
-      title: `${member.name} – ${member.role}`,
-      description: member.bio,
-      url: `${siteConfig.url}/team/${member.slug}`,
-      siteName: siteConfig.title,
       type: "profile",
-      images: member.image ? [{ url: `${siteConfig.url}${member.image}` }] : [],
-    },
-    icons: {
-      icon: "/favicon.ico",
-      apple: "/apple-touch-icon.png",
+      images: member.image
+        ? [`${siteConfig.url}${member.image}`]
+        : undefined,
     },
     twitter: {
-      card: "summary_large_image",
-      title: `${member.name} – ${member.role}`,
-      description: member.bio,
-      images: member.image ? [`${siteConfig.url}${member.image}`] : [],
-      creator: siteConfig.socialMedia.twitter?.href || "",
+      images: member.image
+        ? [`${siteConfig.url}${member.image}`]
+        : undefined,
     },
-  };
+  });
 }
 
-export default async function TeamBioPage({ params }) {
-  const { slug } = await params;
+export default async function TeamBioPage({
+  params,
+}) {
+  const { slug } = params;
 
   const member = siteConfig.team.find((m) => m.slug === slug);
 

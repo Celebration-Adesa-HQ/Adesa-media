@@ -2,48 +2,18 @@ import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import TeamGrid from "./_components/TeamGrid";
 import { siteConfig } from "@/config/site";
+import { constructMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Team - Adesa Media | Full-Service Marketing Agency",
+export const metadata = constructMetadata({
+  title: "Team",
   description:
     "Meet the leadership and experts at Adesa Media. Senior team driving strategy, creative, and media execution for brands in Lagos and Nigeria.",
-  metadataBase: new URL(siteConfig.url),
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  openGraph: {
-    title: "Team - Adesa Media",
-    description:
-      "Our senior team delivers strategy, creativity, and execution for leading brands across marketing, media, and PR.",
-    url: "https://adesamedia.com/team",
-    siteName: siteConfig.title,
-    images: [
-      {
-        url: `${siteConfig.url}/Adesa-media-logo-white.png`,
-        width: 800,
-        height: 600,
-        alt: "Adesa Media Logo",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Team - Adesa Media",
-    description:
-      "Meet the experts behind strategy, creative, and media execution at Adesa Media.",
-    images: [`${siteConfig.url}/Adesa-media-logo-black.png`],
-    creator: siteConfig.seo.twitter.creator,
-  },
-  alternates: {
-    canonical: "https://adesamedia.com/team",
-  },
-};
+  path: "/team",
+});
 
 export default function TeamPage() {
   const team = siteConfig.team;
+
   return (
     <main className="bg-white">
       <SectionHeading
