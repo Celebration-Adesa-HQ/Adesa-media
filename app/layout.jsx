@@ -45,58 +45,6 @@ export default function RootLayout({ children }) {
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                url: siteConfig.url,
-                name: siteConfig.title,
-                description: siteConfig.description,
-                potentialAction: {
-                  "@type": "SearchAction",
-                  target: `${siteConfig.url}/?s={search_term_string}`,
-                  "query-input": "required name=search_term_string",
-                },
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                name: siteConfig.title,
-                url: siteConfig.url,
-                logo: siteConfig.logo,
-                description: siteConfig.description,
-                sameAs: Object.values(siteConfig.socialMedia || {})
-                  .map((s) => s.href)
-                  .filter(Boolean),
-                address: {
-                  "@type": "PostalAddress",
-                  streetAddress: siteConfig.contact?.address?.lines?.[0] || "",
-                  addressLocality: (
-                    siteConfig.contact?.address?.lines?.[2] || "Lagos"
-                  )
-                    .split(",")[0]
-                    .trim(),
-                  postalCode:
-                    (siteConfig.contact?.address?.lines?.[2] || "")
-                      .split(",")[1]
-                      ?.trim() || "",
-                  addressCountry: "NG",
-                },
-                contactPoint: [
-                  {
-                    "@type": "ContactPoint",
-                    telephone: siteConfig.contact?.phone?.value || "",
-                    contactType: "customer service",
-                    email: siteConfig.contact?.email?.value || "",
-                  },
-                ],
-              },
-            ]),
-          }}
-        />
       </body>
     </html>
   );
