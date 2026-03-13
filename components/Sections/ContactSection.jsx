@@ -22,6 +22,9 @@ const Twitter = dynamic(() => import("lucide-react").then((m) => m.Twitter));
 const Instagram = dynamic(() =>
   import("lucide-react").then((m) => m.Instagram),
 );
+const Facebook = dynamic(() =>
+  import("lucide-react").then((m) => m.Facebook),
+);
 const Send = dynamic(() => import("lucide-react").then((m) => m.Send));
 
 const initialForm = (services) => ({
@@ -140,6 +143,11 @@ const handleSubmit = useCallback(
 
               <div className="flex gap-4">
                 <SocialLink
+                  href={socialMedia.facebook.href}
+                  label=" Facebook"
+                  icon={<Facebook />}
+                />
+                <SocialLink
                   href={socialMedia.linkedin.href}
                   label="LinkedIn"
                   icon={<Linkedin />}
@@ -160,7 +168,7 @@ const handleSubmit = useCallback(
                 <Link
                   href={socialMedia.tiktok.href}
                   aria-label="TikTok"
-                  className="w-12 h-12 bg-brand-orange/90 rounded-full flex items-center justify-center"
+                  className="w-12 h-12 hover:bg-brand-orange/60 bg-brand-orange/90 rounded-full flex items-center justify-center"
                 >
                   <Image
                     src={socialMedia.tiktok.icon}
@@ -299,7 +307,7 @@ function SocialLink({ href, label, icon }) {
     <Link
       href={href}
       aria-label={label}
-      className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
+      className="w-12 h-12 hover:bg-brand-orange bg-white/10 rounded-full flex items-center justify-center"
     >
       {icon}
     </Link>

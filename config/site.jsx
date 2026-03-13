@@ -43,22 +43,26 @@ export const siteConfig = {
   socialMedia: {
     linkedin: {
       label: "LinkedIn",
-      href: "https://linkedin.com/company/adesa",
+      href: "https://ng.linkedin.com/company/adesa-media",
     },
 
     twitter: {
       label: "Twitter",
-      href: "https://twitter.com/adesahq",
+      href: "https://x.com/AdesaMedia",
     },
 
     instagram: {
       label: "Instagram",
-      href: "https://instagram.com/adesahq",
+      href: "https://www.instagram.com/adesamedia/",
+    },
+    facebook: {
+      label: "Facebook",
+      href: "https://www.facebook.com/61551745417738/?locale=en_GB",
     },
 
     tiktok: {
       label: "TikTok",
-      href: "https://tiktok.com/@adesahq",
+      href: "https://www.tiktok.com/@adesa.media",
       icon: "/icons/tiktok.svg",
     },
   },
@@ -173,10 +177,16 @@ export const siteConfig = {
           "We Are A Marketing Agency, Where Creativity, Innovation, Strategic Insight and Storytelling converge seamlessly",
         logoColor: "white",
         socialLinks: [
-          { icon: "Facebook", href: "#" },
-          { icon: "Twitter", href: "#" },
-          { icon: "Instagram", href: "#" },
-          { icon: "Linkedin", href: "#" },
+          {
+            icon: "Facebook",
+            href: "https://www.facebook.com/61551745417738/?locale=en_GB",
+          },
+          { icon: "Twitter", href: "https://x.com/AdesaMedia" },
+          { icon: "Instagram", href: "https://www.instagram.com/adesamedia/" },
+          {
+            icon: "Linkedin",
+            href: "https://ng.linkedin.com/company/adesa-media",
+          },
         ],
       },
       quickNavigation: [
