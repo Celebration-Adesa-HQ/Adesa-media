@@ -5,6 +5,7 @@ export const siteConfig = {
     "ADESA MEDIA is a full service marketing agency in Lagos, Nigeria. We deliver brand strategy, media buying, PR, digital marketing, and experiential campaigns built for measurable growth.",
   url: "https://adesamedia.com",
   ogImage: "/Adesa-media-logo-black.png",
+  logo: "/Adesa-media-logo-white.png",
   links: {
     twitter: "https://twitter.com/adesamedia",
     linkedin: "https://linkedin.com/company/adesa-media",

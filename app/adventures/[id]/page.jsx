@@ -7,14 +7,15 @@ import { siteConfig } from "@/config/site";
 export async function generateMetadata(
   { params }
 ){
+  const {id} = await params
   const adventure = AdventureWork.find(
-    (a) => a.slug === params.id
+    (a) => a.slug === id
   );
 
   if (!adventure) {
     return constructMetadata({
       title: "Adventure Not Found",
-      path: `/adventures/${params.id}`,
+      path: `/adventures/${id}`,
       noIndex: true,
     });
   }
@@ -37,9 +38,12 @@ export async function generateMetadata(
 export default async function AdventurePage({
   params,
 }) {
+  const { id } = await params;
   const adventureData = AdventureWork.find(
-    (a) => a.slug === params.id
+    (a) => a.slug === id
   );
+
+  console.log("Adventure Data:", adventureData);
 
   if (!adventureData) {
     notFound();
