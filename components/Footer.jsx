@@ -185,6 +185,17 @@ export default function Footer() {
         {/* Copyright & Legal */}
         <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm">
           <p>&copy; {currentYear} Adesa Media. All rights reserved.</p>
+          <div className="flex flex-wrap items-center gap-6">
+            {legalLinks.map((link, i) => (
+              <Link
+                key={i}
+                href={link.href}
+                className="hover:text-[#FFA205] transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </motion.footer>

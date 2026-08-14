@@ -218,9 +218,9 @@ export const siteConfig = {
         email: "info@adesahq.com",
       },
       legalLinks: [
-        { label: "Privacy Policy", href: "#" },
-        { label: "Terms of Service", href: "#" },
-        { label: "Cookie Settings", href: "#" },
+        { label: "Privacy Policy", href: "/privacy-policy" },
+        { label: "Terms & Conditions", href: "/terms-and-conditions" },
+        { label: "Cookie Policy", href: "/cookie-policy" },
       ],
     },
 
