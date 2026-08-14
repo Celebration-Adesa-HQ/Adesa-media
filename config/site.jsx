@@ -214,7 +214,7 @@ export const siteConfig = {
       contact: {
         address:
           "2, Isheri Road (2nd Floor), by Berger Roundabout, Ojodu Berger, Lagos, 101233",
-        phone: "+234 701 234 5154",
+        phone: "+2348023087303",
         email: "info@adesahq.com",
       },
       legalLinks: [
@@ -426,7 +426,7 @@ export const siteConfig = {
       id: 8,
       question: "How can brands contact or partner with Adesa Media?",
       answer:
-        "Office at 2 Isheri Road, Ojodu Berger, Lagos. Phone +234 701 234 5154. Email info@adesahq.com. Partnerships focus on long-term growth and shared goals.",
+        "Office at 2 Isheri Road, Ojodu Berger, Lagos. Phone +2348023087303. Email info@adesahq.com. Partnerships focus on long-term growth and shared goals.",
     },
   ],
 
@@ -726,7 +726,7 @@ export const siteConfig = {
 
     phone: {
       title: "Phone",
-      value: "+234 701 234 5154",
+      value: "+2348023087303",
     },
 
     followLabel: "Follow Us",

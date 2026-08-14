@@ -24,7 +24,7 @@ export default function ContactPage() {
             name: "Adesa Media",
             image: siteConfig.logo,
             url: siteConfig.url,
-            telephone: siteConfig.contact?.phone?.value ?? "+2347012345154",
+            telephone: siteConfig.contact?.phone?.value ?? "+2348023087303",
             email: siteConfig.contact?.email?.value ?? "info@adesahq.com",
             address: {
               "@type": "PostalAddress",
