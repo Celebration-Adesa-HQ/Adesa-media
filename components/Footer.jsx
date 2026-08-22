@@ -48,7 +48,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14 mb-16">
           {/* Brand Info */}
           <div className="space-y-6">
-            <Logo color="white" />
+            <div>
+              <Logo color="white" />
+              <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#ffa205]/80">
+                A Subsidiary of{" "}
+                <a
+                  href="https://adesahq.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#ffa205] hover:text-amber-300 underline underline-offset-2 transition-colors"
+                >
+                  Adesa HQ
+                </a>
+              </p>
+            </div>
             <p className="text-slate-300 text-sm leading-relaxed">
               {brand.description}
             </p>
@@ -166,7 +179,21 @@ export default function Footer() {
 
         {/* Bottom Legal bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-xs">
-          <p>&copy; {currentYear} Adesa Media. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3">
+            <p>&copy; {currentYear} Adesa Media. All rights reserved.</p>
+            <span className="hidden sm:block text-white/20">·</span>
+            <p>
+              A subsidiary of{" "}
+              <a
+                href="https://adesahq.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#ffa205] hover:text-amber-300 transition-colors"
+              >
+                Adesa HQ
+              </a>
+            </p>
+          </div>
           <div className="flex flex-wrap items-center gap-6">
             {legalLinks.map((link, i) => (
               <Link

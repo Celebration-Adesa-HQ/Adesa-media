@@ -71,11 +71,19 @@ const HeroSection = memo(function HeroSection({
 
       {/* Top Header - Logo */}
       <header className="relative z-30 flex items-center justify-between px-6 sm:px-10 lg:px-16 pt-6 sm:pt-8">
-        <div className="flex items-center gap-2">
-          <span className="hidden sm:inline-block px-3 py-1 rounded-full text-[11px] font-semibold tracking-widest uppercase bg-white/10 text-amber-300 border border-white/10 backdrop-blur-md">
-            Lagos, Nigeria
-          </span>
-        </div>
+         <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="flex flex-wrap items-center gap-2 mb-6"
+          >
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#ffa205]/15 border border-[#ffa205]/30 backdrop-blur-md text-xs font-bold uppercase tracking-[0.2em] text-amber-300">
+              A Subsidiary of Adesa HQ
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/8 border border-white/15 backdrop-blur-md text-xs font-semibold text-slate-300 uppercase tracking-widest">
+              Lagos, Nigeria
+            </span>
+          </motion.div>
         <div>
           {logo || <Logo color={logoColor} />}
         </div>
@@ -84,7 +92,6 @@ const HeroSection = memo(function HeroSection({
       {/* Center Hero Content */}
       <main className="relative z-20 flex flex-1 items-center px-6 sm:px-12 lg:px-20 py-12">
         <div className="max-w-4xl">
-        
 
           {/* Headline */}
           <motion.h1
