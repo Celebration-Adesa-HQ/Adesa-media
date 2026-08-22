@@ -3,12 +3,11 @@
 import React, { useRef, useState, useEffect, Fragment } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronRightIcon } from "lucide-react";
+import { ChevronRight, Compass } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
-const HeroNav = () => {
+const HeroNav = ({ className = "" }) => {
   const { navigationItems, navigationPrompt } = siteConfig.navigation;
-  const navRef = useRef(null);
   const sentinelRef = useRef(null);
   const [isSticky, setIsSticky] = useState(false);
 
@@ -17,7 +16,7 @@ const HeroNav = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsSticky(!entry.isIntersecting),
-      { threshold: 1 },
+      { threshold: 0.1 },
     );
 
     if (sentinelRef.current) observer.observe(sentinelRef.current);
@@ -27,40 +26,45 @@ const HeroNav = () => {
 
   return (
     <>
-      <div ref={sentinelRef} />
+      <div ref={sentinelRef} className="h-px w-full pointer-events-none" />
 
       <nav
-        ref={navRef}
-        className={`bg-[#0a1e3d]/85 backdrop-blur-md px-4 md:px-12 py-5 transition-transform ${
-          isSticky ? "fixed top-0 left-0 right-0 z-50" : "relative"
-        }`}
+        aria-label="Hero Navigation"
+        className={`w-full transition-all duration-300 z-40 ${
+          isSticky
+            ? "fixed top-0 left-0 right-0 bg-[#070e24]/90 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3.5 px-4 md:px-12"
+            : "relative bg-[#070e24]/75 backdrop-blur-lg border-t border-white/10 py-4 px-4 md:px-12"
+        } ${className}`}
       >
-        <div className="flex flex-col md:flex-row md:items-center gap-4">
-          {/* Prompt */}
-          <div className="flex items-center gap-2 text-cyan-400 text-sm shrink-0">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
+          {/* Prompt / Eyebrow */}
+          <div className="flex items-center gap-2 text-cyan-400 text-xs md:text-sm font-semibold tracking-wider uppercase shrink-0">
+            <Compass className="w-4 h-4 text-[#ffa205] animate-spin-slow" />
             <span>{navigationPrompt}</span>
-            <ChevronRightIcon className="w-4 h-4" />
+            <ChevronRight className="w-3.5 h-3.5 text-cyan-400/80" />
           </div>
 
-          {/* Scrollable Nav */}
-          <div className=" flex items-center flex-nowrap overflow-x-auto md:overflow-visible md:flex-wrap">
+          {/* Scrollable Nav Items */}
+          <div className="flex items-center flex-nowrap overflow-x-auto md:overflow-visible md:flex-wrap gap-1.5 scrollbar-none py-1">
             {navigationItems.map((item, index) => {
               const isActive =
                 pathname === item.href ||
                 (item.href !== "/" && pathname.startsWith(item.href));
 
               return (
-                <Fragment key={index}>
+                <Fragment key={item.href || index}>
                   {index > 0 && (
-                    <ChevronRightIcon className="w-4 h-4 text-cyan-400 mx-2 shrink-0" />
+                    <span className="text-white/20 select-none text-xs hidden md:inline px-1">
+                      /
+                    </span>
                   )}
 
                   <Link
                     href={item.href || "#"}
-                    className={`whitespace-nowrap text-sm transition-colors px-2 py-1 shrink-0 ${
+                    className={`whitespace-nowrap text-xs md:text-sm px-3.5 py-1.5 rounded-full transition-all duration-200 shrink-0 font-medium ${
                       isActive
-                        ? "text-cyan-400 font-semibold"
-                        : "text-white hover:text-[#22d3ee]"
+                        ? "bg-[#ffa205] text-[#070e24] font-bold shadow-md shadow-amber-500/20"
+                        : "text-white/80 hover:text-white hover:bg-white/10"
                     }`}
                   >
                     {item.label}
@@ -76,3 +80,4 @@ const HeroNav = () => {
 };
 
 export default HeroNav;
+

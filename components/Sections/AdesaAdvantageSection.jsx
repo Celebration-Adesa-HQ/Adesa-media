@@ -1,18 +1,12 @@
 "use client";
 
 import { useMemo } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
-// Lazy-load icon (lucide is big)
-const ArrowRight = dynamic(
-  () => import("lucide-react").then((m) => m.ArrowRight),
-  { ssr: false },
-);
-
 export default function AdesaAdvantageSection() {
-  // Memoize config access
   const { features, cta, backgroundImage } = useMemo(() => {
     const section = siteConfig.homepage.adesaAdvantage;
 
@@ -24,51 +18,48 @@ export default function AdesaAdvantageSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex items-center overflow-hidden z-0">
-      {/* Background */}
+    <section className="relative min-h-screen w-full flex items-center overflow-hidden py-24 z-0">
+      {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
           src={backgroundImage}
-          alt="Aerial view of a long bridge over a lush green canyon"
+          alt="Aerial view of scenic landscape"
           fill
           sizes="100vw"
-          className="object-cover brightness-75"
+          className="object-cover brightness-[0.55]"
           quality={85}
           priority
         />
-
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070e24]/90 via-[#070e24]/75 to-[#070e24]/50" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 py-20">
+      <div className="relative z-10 container mx-auto px-6 sm:px-10 lg:px-16">
         {/* Heading */}
-        <div className="max-w-2xl mb-16 md:mb-24">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight tracking-tight drop-shadow-lg">
-            The
-            <br />
-            ADESA
-            <br />
-            Advantage
-          </h1>
+        <div className="max-w-2xl mb-14 md:mb-18">
+          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#ffa205] bg-[#ffa205]/15 px-4 py-1.5 rounded-full border border-[#ffa205]/30 backdrop-blur-md">
+            Why We Win
+          </span>
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white mt-4 leading-tight tracking-tight drop-shadow-md">
+            The ADESA Advantage
+          </h2>
         </div>
 
-        {/* Features */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-10">
+        {/* Feature Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((f) => (
             <FeatureCard key={f.id} data={f} />
           ))}
 
-          {/* CTA */}
-          <div className="flex items-end md:pl-6 pb-2">
-            <a
+          {/* CTA Card */}
+          <div className="flex items-center">
+            <Link
               href={cta.href}
-              className="inline-flex items-center text-white font-semibold hover:text-[#FFA205] transition-colors group"
+              className="group inline-flex items-center gap-3 rounded-2xl bg-[#ffa205] px-8 py-5 text-base font-bold text-[#070e24] shadow-xl shadow-amber-500/20 transition-all duration-300 hover:bg-[#ffb733] hover:shadow-amber-500/35 hover:scale-[1.02] active:scale-[0.98]"
             >
-              {cta.label}
-
-              <ArrowRight className="h-5 w-5 ml-2 transform group-hover:translate-x-2 transition-transform" />
-            </a>
+              <span>{cta.label}</span>
+              <ArrowRight className="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1.5" />
+            </Link>
           </div>
         </div>
       </div>
@@ -76,21 +67,22 @@ export default function AdesaAdvantageSection() {
   );
 }
 
-/* Isolated card = fewer re-renders */
 function FeatureCard({ data }) {
   return (
-    <div className="border-l-4 border-white/30 pl-6 group hover:translate-y-1 transition-transform">
-      <h3 className="text-white text-2xl md:text-3xl font-light mb-3">
-        <span className="font-extrabold text-4xl md:text-5xl mr-2">
+    <div className="group rounded-3xl bg-[#0b1430]/75 border border-white/10 p-6 sm:p-8 backdrop-blur-md transition-all duration-300 hover:border-[#ffa205]/50 hover:bg-[#0f1b40]/85 hover:-translate-y-1 shadow-lg">
+      <div className="flex items-baseline gap-1 mb-3">
+        <span className="font-extrabold text-4xl sm:text-5xl text-[#ffa205] drop-shadow-[0_0_12px_rgba(255,162,5,0.4)]">
           {data.letter}
         </span>
+        <span className="font-semibold text-xl sm:text-2xl text-white tracking-wide">
+          {data.title}
+        </span>
+      </div>
 
-        <span className="italic font-normal opacity-90">{data.title}</span>
-      </h3>
-
-      <p className="text-white/80 text-lg leading-relaxed max-w-sm">
+      <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
         {data.description}
       </p>
     </div>
   );
 }
+

@@ -5,47 +5,50 @@ import { siteConfig } from "@/config/site";
 export default function sitemap() {
   const baseUrl = siteConfig.url || "https://adesamedia.com";
 
-  // Static pages
+  // Core Static pages
   const staticPages = [
-    "",
-    "/about",
-    "/services",
-    "/approach",
-    "/clients",
-    "/team",
-    "/careers",
-    "/contact",
-    "/adventures",
-    "/media",
-  ].map((route) => ({
+    { route: "", priority: 1.0, changeFreq: "weekly" },
+    { route: "/about", priority: 0.9, changeFreq: "monthly" },
+    { route: "/services", priority: 0.9, changeFreq: "weekly" },
+    { route: "/approach", priority: 0.8, changeFreq: "monthly" },
+    { route: "/clients", priority: 0.8, changeFreq: "monthly" },
+    { route: "/adventures", priority: 0.9, changeFreq: "weekly" },
+    { route: "/media", priority: 0.9, changeFreq: "daily" },
+    { route: "/team", priority: 0.8, changeFreq: "monthly" },
+    { route: "/careers", priority: 0.8, changeFreq: "weekly" },
+    { route: "/contact", priority: 0.9, changeFreq: "monthly" },
+    { route: "/privacy-policy", priority: 0.3, changeFreq: "yearly" },
+    { route: "/terms-and-conditions", priority: 0.3, changeFreq: "yearly" },
+    { route: "/cookie-policy", priority: 0.3, changeFreq: "yearly" },
+  ].map(({ route, priority, changeFreq }) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: route === "" ? 1.0 : 0.8,
+    lastModified: new Date().toISOString(),
+    changeFrequency: changeFreq,
+    priority,
   }));
 
   // Team member pages
   const teamPages = siteConfig.team.map((member) => ({
     url: `${baseUrl}/team/${member.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date().toISOString(),
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
-  // Adventure/Case study pages
+  // Adventure / Case study pages
   const adventurePages = AdventureWork.map((adventure) => ({
     url: `${baseUrl}/adventures/${adventure.slug}`,
-    lastModified: new Date(adventure.date || Date.now()),
+    lastModified: new Date(adventure.date || Date.now()).toISOString(),
     changeFrequency: "monthly",
-    priority: 0.8,
+    priority: 0.85,
   }));
 
-  // Blog post pages
+  // Media / Blog post pages
   const blogPages = allBlogPosts.map((post) => ({
     url: `${baseUrl}${post.link}`,
-    lastModified: new Date(post.date),
+    lastModified: new Date(post.date).toISOString(),
     changeFrequency: "weekly",
-    priority: 0.6,
+    priority: 0.8,
   }));
 
   return [...staticPages, ...teamPages, ...adventurePages, ...blogPages];

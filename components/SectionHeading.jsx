@@ -8,7 +8,6 @@ export function SectionHeading({
   align = "left",
   className,
 }) {
-  // Default headings based on showFullClient
   const defaultHeading = showFullClient
     ? {
         eyebrow: "Our Clients",
@@ -33,41 +32,40 @@ export function SectionHeading({
     <div
       className={cn(
         "w-full",
-        showFullClient ? "bg-brand-blue py-20 sm:py-28" : "bg-transparent",
+        showFullClient ? "bg-[#070e24] py-16 sm:py-20" : "bg-transparent",
         className,
       )}
     >
       <div
         className={cn(
-          "mx-10 space-y-4 -my-10",
-          showFullClient ? "max-w-4xl px-6 sm:px-10" : "max-w-3xl",
+          "space-y-4 max-w-4xl mx-auto px-6 sm:px-10",
           align === "center" ? "text-center" : "text-left",
         )}
       >
         {finalHeading.eyebrow && (
-          <div className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-orange">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.25em] text-[#ffa205] bg-[#ffa205]/15 px-4 py-1.5 rounded-full border border-[#ffa205]/30">
             {finalHeading.eyebrow}
-          </div>
+          </span>
         )}
 
-        <h1
+        <h2
           className={cn(
-            "font-semibold tracking-tight",
+            "font-extrabold tracking-tight",
             showFullClient
-              ? "text-3xl sm:text-4xl md:text-5xl text-slate-100"
-              : "text-2xl sm:text-3xl text-slate-950",
+              ? "text-3xl sm:text-4xl md:text-5xl text-white"
+              : "text-2xl sm:text-3xl text-white",
           )}
         >
           {finalHeading.title}
-        </h1>
+        </h2>
 
         {finalHeading.description && (
           <p
             className={cn(
               "leading-relaxed",
               showFullClient
-                ? "text-base sm:text-lg text-slate-300"
-                : "text-base text-slate-600",
+                ? "text-base sm:text-lg text-slate-300 max-w-3xl"
+                : "text-sm sm:text-base text-slate-400 max-w-2xl",
             )}
           >
             {finalHeading.description}
@@ -77,3 +75,4 @@ export function SectionHeading({
     </div>
   );
 }
+

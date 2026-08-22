@@ -15,19 +15,19 @@ export default function TeamPage() {
   const team = siteConfig.team;
 
   return (
-    <main className="bg-white">
+    <main className="bg-[#070e24] min-h-screen text-white">
       <SectionHeading
         eyebrow="Our People"
         showFullClient={true}
         title="Senior expertise across strategy, creative, and delivery"
         description="Role-led structure built for quality control, accountability, and consistent execution."
-        className=""
       />
-      <section className="bg-slate-50">
-        <Container className="py-20">
+      <section className="bg-[#091333] py-20 border-t border-white/10">
+        <Container>
           <TeamGrid team={team} />
         </Container>
       </section>
     </main>
   );
 }
+

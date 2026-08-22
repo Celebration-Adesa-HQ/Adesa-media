@@ -31,6 +31,11 @@ const BackToTop = dynamic(() => import("@/components/BackToTop"), {
   ssr: false,
 });
 
+const WhatsAppButton = dynamic(
+  () => import("@/components/WhatsAppButton"),
+  { ssr: false },
+);
+
 export default function AppShell({ children }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -84,6 +89,7 @@ export default function AppShell({ children }) {
       <Footer onNavClick={handleNavClick} />
 
       <BackToTop />
+      <WhatsAppButton />
     </>
   );
 }

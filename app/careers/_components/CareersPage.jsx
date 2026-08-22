@@ -238,6 +238,8 @@ export default function CareersPage({ careers, values }) {
         </Container>
       </section>
 
+              <GeneralApplication careers={careers} />
+              
       <OpenPositions careers={careers} />
 
       <section className="bg-brand-blue py-20 text-white sm:py-28">
@@ -266,7 +268,6 @@ export default function CareersPage({ careers, values }) {
         </Container>
       </section>
 
-      <GeneralApplication careers={careers} />
     </main>
   );
 }
