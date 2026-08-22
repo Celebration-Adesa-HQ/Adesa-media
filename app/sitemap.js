@@ -13,6 +13,7 @@ export default function sitemap() {
     "/approach",
     "/clients",
     "/team",
+    "/careers",
     "/contact",
     "/adventures",
     "/media",

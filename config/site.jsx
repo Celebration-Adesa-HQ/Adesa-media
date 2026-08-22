@@ -1,3 +1,5 @@
+import { careersConfig } from "./careers";
+
 export const siteConfig = {
   // seo
   name: "ADESA MEDIA",
@@ -24,6 +26,7 @@ export const siteConfig = {
       { href: "/adventures", label: "Our Adventures" },
       { href: "/team", label: "Team" },
       { href: "/clients", label: "Clients" },
+      { href: "/careers", label: "Careers" },
     ],
     cta: { href: "/contact", label: "PARTNER WITH US" },
     navigationItems: [
@@ -35,6 +38,7 @@ export const siteConfig = {
       { label: "Adventures", href: "/adventures" },
       { label: "Team", href: "/team" },
       { label: "Clients", href: "/clients" },
+      { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
     navigationPrompt: "Click Menu to Navigate",
@@ -195,6 +199,7 @@ export const siteConfig = {
         { label: "Case Studies", href: "#work" },
         { label: "About Us", href: "#about" },
         { label: "Resource Hub", href: "#blog" },
+        { label: "Careers", href: "/careers" },
         { label: "Get Started", href: "#contact" },
       ],
       services: [
@@ -752,6 +757,8 @@ export const siteConfig = {
       submitLabel: "Send Message",
     },
   },
+
+  careers: careersConfig,
 
   // Team Section
   team: [
