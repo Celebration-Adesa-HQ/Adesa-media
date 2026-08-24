@@ -8,17 +8,33 @@ export default function robots() {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/private/"],
+        disallow: [
+          "/api/",
+          "/_next/",
+          "/private/",
+          "/*?s=*",
+          "/*?*search_term_string*",
+        ],
       },
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/api/", "/private/"],
+        disallow: [
+          "/api/",
+          "/private/",
+          "/*?s=*",
+          "/*?*search_term_string*",
+        ],
       },
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/api/", "/private/"],
+        disallow: [
+          "/api/",
+          "/private/",
+          "/*?s=*",
+          "/*?*search_term_string*",
+        ],
       },
       {
         userAgent: "Twitterbot",

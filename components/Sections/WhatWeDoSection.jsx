@@ -31,7 +31,10 @@ export function WhatWeDoSection() {
         {/* 3 Columns Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Column 1: Strategy & Planning */}
-          <div className="lg:col-span-4 rounded-3xl bg-[#0d173b]/70 border border-white/10 p-6 sm:p-8 backdrop-blur-xl hover:border-red-500/40 transition-all duration-300 shadow-xl order-2 lg:order-1">
+          <div
+            id="strategy"
+            className="scroll-mt-24 lg:col-span-4 rounded-3xl bg-[#0d173b]/70 border border-white/10 p-6 sm:p-8 backdrop-blur-xl hover:border-red-500/40 transition-all duration-300 shadow-xl order-2 lg:order-1"
+          >
             <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-white/10">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400">
@@ -120,7 +123,11 @@ export function WhatWeDoSection() {
           {/* Column 3: Marketing & Production */}
           <div className="lg:col-span-4 flex flex-col gap-6 order-3">
             {/* Marketing Communications */}
-            <div className="rounded-3xl bg-[#0d173b]/70 border border-white/10 p-6 sm:p-8 backdrop-blur-xl hover:border-teal-500/40 transition-all duration-300 shadow-xl">
+            <div
+              id="marketing"
+              className="scroll-mt-24 relative rounded-3xl bg-[#0d173b]/70 border border-white/10 p-6 sm:p-8 backdrop-blur-xl hover:border-teal-500/40 transition-all duration-300 shadow-xl"
+            >
+              <div id="media" className="absolute -top-24 left-0" />
               <div className="flex items-center gap-3 mb-5 pb-4 border-b border-white/10">
                 <div className="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/30 flex items-center justify-center text-teal-400">
                   <Users className="w-5 h-5" />
@@ -145,7 +152,10 @@ export function WhatWeDoSection() {
             </div>
 
             {/* Production */}
-            <div className="rounded-3xl bg-[#0d173b]/70 border border-white/10 p-6 sm:p-8 backdrop-blur-xl hover:border-amber-500/40 transition-all duration-300 shadow-xl">
+            <div
+              id="production"
+              className="scroll-mt-24 rounded-3xl bg-[#0d173b]/70 border border-white/10 p-6 sm:p-8 backdrop-blur-xl hover:border-amber-500/40 transition-all duration-300 shadow-xl"
+            >
               <div className="flex items-center gap-3 mb-5 pb-4 border-b border-white/10">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-[#ffa205]">
                   <MessageCircle className="w-5 h-5" />

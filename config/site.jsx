@@ -203,10 +203,10 @@ export const siteConfig = {
         { label: "Get Started", href: "#contact" },
       ],
       services: [
-        { title: "Strategy & Planning", link: "/service/strategy" },
-        { title: "Production", link: "/service/production" },
-        { title: "Marketing Communications", link: "/service/marketing" },
-        { title: "Media Services", link: "/service/media" },
+        { title: "Strategy & Planning", link: "/services#strategy" },
+        { title: "Production", link: "/services#production" },
+        { title: "Marketing Communications", link: "/services#marketing" },
+        { title: "Media Services", link: "/services#media" },
       ],
       newsletter: {
         title: "Weekly Insights",
