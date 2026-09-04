@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
           "@type": "ContactPoint",
           telephone: "+2348023087303",
           contactType: "customer support",
-          email: "info@adesahq.com",
+          email: "info.adesamedia@adesahq.com",
           areaServed: "NG",
           availableLanguage: ["en"],
         },
@@ -101,7 +101,7 @@ export default function RootLayout({ children }) {
         logo: `${siteConfig.url}/Adesa-media-logo-black.png`,
         image: `${siteConfig.url}/Adesa-media-logo-black.png`,
         telephone: "+2348023087303",
-        email: "info@adesahq.com",
+        email: "info.adesamedia@adesahq.com",
         priceRange: "$$",
         address: {
           "@type": "PostalAddress",

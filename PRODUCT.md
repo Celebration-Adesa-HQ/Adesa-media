@@ -27,7 +27,7 @@ The company operates from Lagos, Nigeria. Prospective candidates browse the publ
 
 - The website uses Next.js App Router, Tailwind CSS, and the existing shared navigation and footer.
 - Careers content is managed locally in the site configuration.
-- General applications use an editable prefilled email addressed to `career@adesahq.com`.
+- General applications use an editable prefilled email addressed to `career.adesamedia@adesahq.com`.
 - The first careers release has no verified open vacancies and must not fabricate roles.
 - JobPosting structured data is emitted only for configured real positions.
 

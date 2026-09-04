@@ -143,7 +143,7 @@ const sections = [
       {
         type: "text",
         value:
-          "To exercise any of these rights, please contact us at info@adesahq.com. We will respond within 30 days.",
+          "To exercise any of these rights, please contact us at info.adesamedia@adesahq.com. We will respond within 30 days.",
       },
     ],
   },
@@ -207,7 +207,7 @@ const sections = [
         details: {
           company: "Adesa Media",
           address: "2, Isheri Road (2nd Floor), by Berger Roundabout, Ojodu Berger, Lagos, 101233",
-          email: "info@adesahq.com",
+          email: "info.adesamedia@adesahq.com",
           phone: "+2348023087303",
         },
       },

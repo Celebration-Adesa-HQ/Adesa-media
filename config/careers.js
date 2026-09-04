@@ -1,5 +1,5 @@
 export const careersConfig = {
-  applicationEmail: "career@adesahq.com",
+  applicationEmail: "career.adesamedia@adesahq.com",
   generalApplicationSubject:
     "Adesa Media General Application — [Your Desired Role]",
   generalApplicationBody: `Hello Adesa Media Careers Team,

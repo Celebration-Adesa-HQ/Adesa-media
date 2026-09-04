@@ -48,7 +48,7 @@ test("the general application mailto contains the complete approved template", (
     ),
   );
 
-  assert.equal(mailto.pathname, "career@adesahq.com");
+  assert.equal(mailto.pathname, "career.adesamedia@adesahq.com");
   assert.equal(
     mailto.searchParams.get("subject"),
     "Adesa Media General Application — [Your Desired Role]",
