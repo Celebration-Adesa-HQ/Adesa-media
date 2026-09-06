@@ -196,7 +196,7 @@ const sections = [
         details: {
           company: "Adesa Media",
           address: "2, Isheri Road (2nd Floor), by Berger Roundabout, Ojodu Berger, Lagos, 101233",
-          email: "info.adesamedia@adesahq.com",
+          email: "adminfo@adesahq.com",
           phone: "+2348023087303",
         },
       },

@@ -25,7 +25,7 @@ export default function ContactPage() {
             image: siteConfig.logo,
             url: siteConfig.url,
             telephone: siteConfig.contact?.phone?.value ?? "+2348023087303",
-            email: siteConfig.contact?.email?.value ?? "info.adesamedia@adesahq.com",
+            email: siteConfig.contact?.email?.value ?? "adminfo@adesahq.com",
             address: {
               "@type": "PostalAddress",
               streetAddress:
